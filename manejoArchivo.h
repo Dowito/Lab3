@@ -19,6 +19,13 @@ lee un archivo.txt(texo natural) y returna una cadena de caracteres que contiene
 caracteres del texto leido
 */
 
+char *writeArchivo(char *name, char *cad);
+/*
+name->Cadena de caracteres. Es el nombre del archivo a escribir
+cad->Cadena de caracteres que se escribiran en el texto.
+Escribe una cadena de caracteres en un texto.
+*/
+
 char *bits2Byte(bool *arrBits, unsigned long long tamArrBits);
 /*
 arrBits->arreglo bits.

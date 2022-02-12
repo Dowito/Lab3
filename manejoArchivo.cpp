@@ -83,3 +83,8 @@ char *bits2Byte(bool *arrBits, unsigned long long tamArrBits)
     }
     return arrBytes;
 }
+
+char *writeArchivo(char *name, char *cad)
+{
+
+}
