@@ -17,10 +17,10 @@ unsigned long long tamArchivo(char *direccion)
 
 char *rArchivo(char *direccion)
 {
+    unsigned long long tam = tamArchivo(direccion);
     fstream Archivo;
-    Archivo.open(direccion, fstream::in | fstream:: binary |fstream::ate);  //Mode oout->Lectura  ate->abre poniendo el cursor en el ultimo archivo
-    if(Archivo.is_open()){ //Procedemos a guardar el archivo en un arreglo de char
-        unsigned long long tam = tamArchivo(direccion);//Retorna la ultima posicion del archivo
+    Archivo.open(direccion, fstream::in | fstream:: binary);  //Mode oout->Lectura  ate->abre poniendo el cursor en el ultimo archivo
+    if(Archivo.is_open()){ //Procedemos a guardar el archivo en un arreglo de cha
         char *cad = new char [tam+1] {'\0'}; //Reservamos suficiente espacio para guardar el archivo en el heap
         Archivo.read(cad, tam); //cad guarda el archivo
         Archivo.close();

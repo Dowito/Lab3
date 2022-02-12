@@ -7,7 +7,6 @@ int main()
     unsigned long long semilla = 4;
     char cad[] = "../Lab3/Data_base/natural.txt";
     char *cadArchivo = rArchivo(cad);
-    cout << *cadArchivo << endl;
     char EjGuia[5] = {'A','b','C','d','\0'};
     bool *EjGuiaBits = getBits(EjGuia);
     bool *pruebaBits = getBits(cadArchivo);
@@ -22,10 +21,10 @@ int main()
     unsigned long long indx = 0;
 
     //Pseudo transformador de bits a char, lo hiso para probar si el programa estaba bueno
-    while(indx<8*tamEjGuia){
+    while(indx<8*tamPrueba){
         for (short i=0; i<8; i++) {
-            convernum = EjGuiaBits[indx] << (7-i);
-            num += (EjGuiaBits[indx] << (7-i));
+            convernum = pruebaBits[indx] << (7-i);
+            num += (pruebaBits[indx] << (7-i));
             indx++;
         }
         cout << (char)num;
