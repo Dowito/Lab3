@@ -33,9 +33,19 @@ int main()
     bool *EjGuiaEncript;
     EjGuiaEncript = CodificacionMet1(4, EjGuiaBits, 8*tamEjGuia);
 
+    //Pruebas a bits2Byte
+    //Con EjGuiaBits
+    cout << "De bits->bytes->caracteres EjGuia: \n";
     char *arrBytes = bits2Byte(EjGuiaBits, 8*tamEjGuia);
-    for (int i=0; i<tamEjGuia; i++) {
+    for (unsigned long long i=0; i<tamEjGuia; i++) {
         cout << arrBytes[i];
+    }
+    cout << endl;
+    //Con pruebaBits
+    cout << "De bits->bytes->caracteres prueba: \n";
+    char *arrBytesPrueba = bits2Byte(pruebaBits, 8*tamPrueba);
+    for (unsigned long long int i=0; i<tamPrueba; i++) {
+        cout << arrBytesPrueba[i];
     }
     return 0;
 }
