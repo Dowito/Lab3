@@ -1,14 +1,26 @@
 #include <manejoArchivo.h>
 
-
+unsigned long long tamArchivo(char *direccion)
+{
+    fstream Archivo;
+    Archivo.open(direccion, fstream::in | fstream:: binary |fstream::ate);
+    if(Archivo.is_open()){
+        unsigned long long tamArchivo = Archivo.tellg();//Retorna la ultima posicion del archivo
+        Archivo.close();
+        return tamArchivo;
+    }
+    else{
+        cout << "El archivo no existe." << endl;
+        return 0;
+    }
+}
 
 char *rArchivo(char *direccion)
 {
     fstream Archivo;
     Archivo.open(direccion, fstream::in | fstream:: binary |fstream::ate);  //Mode oout->Lectura  ate->abre poniendo el cursor en el ultimo archivo
     if(Archivo.is_open()){ //Procedemos a guardar el archivo en un arreglo de char
-        unsigned long long tam = Archivo.tellg();//Retorna la ultima posicion del archivo
-        Archivo.seekg(0); //curso en 0
+        unsigned long long tam = tamArchivo(direccion);//Retorna la ultima posicion del archivo
         char *cad = new char [tam+1] {'\0'}; //Reservamos suficiente espacio para guardar el archivo en el heap
         Archivo.read(cad, tam); //cad guarda el archivo
         Archivo.close();
@@ -16,8 +28,7 @@ char *rArchivo(char *direccion)
     }
     else{
         cout << "El archivo no existe.";
-        char cad[] = "Error";
-        return cad;
+        return 0;
     }
 }
 
@@ -54,19 +65,4 @@ bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long t
         }
     }
     return datosEncript;
-}
-
-unsigned long long tamArchivo(char *direccion)
-{
-    fstream Archivo;
-    Archivo.open(direccion, fstream::in | fstream:: binary |fstream::ate);
-    if(Archivo.is_open()){
-        unsigned long long tamArchivo = Archivo.tellg();//Retorna la ultima posicion del archivo
-        Archivo.close();
-        return tamArchivo;
-    }
-    else{
-        cout << "El archivo no existe." << endl;
-        return 0;
-    }
 }
