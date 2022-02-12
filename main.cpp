@@ -20,7 +20,7 @@ int main()
     unsigned int convernum = 0;
     unsigned long long indx = 0;
 
-    //Pseudo transformador de bits a char, lo hiso para probar si el programa estaba bueno
+    /*Pseudo transformador de bits a char, lo hiso para probar si el programa estaba bueno
     while(indx<8*tamPrueba){
         for (short i=0; i<8; i++) {
             convernum = pruebaBits[indx] << (7-i);
@@ -29,8 +29,13 @@ int main()
         }
         cout << (char)num;
         num = 0;
-    }
+    }*/
     bool *EjGuiaEncript;
     EjGuiaEncript = CodificacionMet1(4, EjGuiaBits, 8*tamEjGuia);
+
+    char *arrBytes = bits2Byte(EjGuiaBits, 8*tamEjGuia);
+    for (int i=0; i<tamEjGuia; i++) {
+        cout << arrBytes[i];
+    }
     return 0;
 }

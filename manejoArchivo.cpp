@@ -69,7 +69,7 @@ bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long t
 
 char *bits2Byte(bool *arrBits, unsigned long long tamArrBits)
 {
-    char *arrBytes = new char [tamArrBits/8];
+    char *arrBytes = new char [(tamArrBits/8)+1]{'\0'};
     unsigned long long indxBits=0, indxBytes=0;
     char byte = 0;
     while(indxBits<tamArrBits){ //se recorre todo arrbits
