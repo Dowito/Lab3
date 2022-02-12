@@ -1,4 +1,5 @@
 #include <Auxiliar.h>
+
 bool *getBits(char *cad)
 {
     unsigned long long tamCad = lenCad(cad);

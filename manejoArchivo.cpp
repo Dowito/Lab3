@@ -66,3 +66,8 @@ bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long t
     }
     return datosEncript;
 }
+
+char *bits2Byte(bool *arrBits)
+{
+
+}

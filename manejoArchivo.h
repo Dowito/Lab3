@@ -19,6 +19,13 @@ lee un archivo.txt(texo natural) y returna una cadena de caracteres que contiene
 caracteres del texto leido
 */
 
+char *bits2Byte(bool *arrBits);
+/*
+arrBits->arreglo bits.
+Agrupa 8 bits para formar 1 byte del mas al menos significativo por cada bloque.
+Retorna una cadena de caracteres formado por los bytes resultantes.
+*/
+
 bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long tamArrBits);
 /*
 n->Semilla. segunda la semilla se codificara los datos de manera diferente
