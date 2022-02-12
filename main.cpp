@@ -1,7 +1,6 @@
-#include <iostream>
-#include <fstream>
-
+#include <manejoArchivo.h>
 using namespace std;
+
 //nombre archivo sin codificar y codificado natural.txt
 //codificado codificado.dat
 //Creacion rama desarrollo metodo1
