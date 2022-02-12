@@ -34,11 +34,22 @@ Agrupa 8 bits para formar 1 byte del mas al menos significativo por cada bloque.
 Retorna una cadena de caracteres formado por los bytes resultantes.
 */
 
-bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long tamArrBits);
+bool *codificacionMetodo1(unsigned long long n, bool *arrBits, unsigned long long tamArrBits);
 /*
-n->Semilla. segunda la semilla se codificara los datos de manera diferente
-arrBits->Arreglo de booleanos, representan una cadena de bits
-se encripta arrBits.
-Retorna dicha cadena de bits encriptada
+n->Semilla para la codificacion
+arrBits->Arreglo de booleanos(bits)
+tamArrBits->Tamaño de arrBits
+Codifica a arrBits.
+Retorna cadena booleana (bits) encriptada
 */
+
+bool *decodificacionMetodo2(unsigned long long n, bool *arrEncript, unsigned long long tamArrEncript);
+/*
+n->Semilla
+arrEncript->Arreglo de booleanos(bits)
+tamArrEncript->Tamaño de arrEncript
+Decodifica a arrEncript
+retorna cadena booleana (bits) desencriptados
+*/
+
 #endif // MANEJOARCHIVO_H

@@ -32,7 +32,36 @@ char *rArchivo(char *direccion)
     }
 }
 
-bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long tamArrBits)
+void writeArchivo(char *name, char *cad)
+{
+    unsigned long long tam = lenCad(cad);
+    fstream Archivo;
+    Archivo.open(name, fstream::out | fstream::binary);
+    if (Archivo.is_open()) {
+        Archivo.write(cad, tam);
+        Archivo.close();
+    }
+    else cout << "Archivo no existe";
+}
+
+char *bits2Byte(bool *arrBits, unsigned long long tamArrBits)
+{
+    char *arrBytes = new char [(tamArrBits/8)+1]{'\0'};
+    unsigned long long indxBits=0, indxBytes=0;
+    char byte = 0;
+    while(indxBits<tamArrBits){ //se recorre todo arrbits
+        for (short i=0; i<8; i++) { //Proceso para agrupar bits en un byte desde el mas al menor significativo
+            byte = byte | (arrBits[indxBits] << (7-i));//se hace un corrimiento de bits y se usa OR. Esto es equivalente a multiplicar por 0b0X*2^(7-i) y luego sumar.
+            indxBits++;
+        }
+        arrBytes[indxBytes] = byte;//El byte obtenido se almacena
+        indxBytes++;
+        byte = 0;
+    }
+    return arrBytes;
+}
+
+bool *codificacionMetodo1(unsigned long long n, bool *arrBits, unsigned long long tamArrBits)
 {
     bool *datosEncript = new bool [tamArrBits];
     for (unsigned long long i=0; i<n; i++) {//se invierte el primer grupo de n bits
@@ -65,33 +94,4 @@ bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long t
         }
     }
     return datosEncript;
-}
-
-char *bits2Byte(bool *arrBits, unsigned long long tamArrBits)
-{
-    char *arrBytes = new char [(tamArrBits/8)+1]{'\0'};
-    unsigned long long indxBits=0, indxBytes=0;
-    char byte = 0;
-    while(indxBits<tamArrBits){ //se recorre todo arrbits
-        for (short i=0; i<8; i++) { //Proceso para agrupar bits en un byte desde el mas al menor significativo
-            byte = byte | (arrBits[indxBits] << (7-i));//se hace un corrimiento de bits y se usa OR. Esto es equivalente a multiplicar por 0b0X*2^(7-i) y luego sumar.
-            indxBits++;
-        }
-        arrBytes[indxBytes] = byte;//El byte obtenido se almacena
-        indxBytes++;
-        byte = 0;
-    }
-    return arrBytes;
-}
-
-void writeArchivo(char *name, char *cad)
-{
-    unsigned long long tam = lenCad(cad);
-    fstream Archivo;
-    Archivo.open(name, fstream::out | fstream::binary);
-    if (Archivo.is_open()) {
-        Archivo.write(cad, tam);
-        Archivo.close();
-    }
-    else cout << "Archivo no existe";
 }
