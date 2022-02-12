@@ -50,6 +50,6 @@ int main()
     for (unsigned long long int i=0; i<tamPrueba; i++) {
         cout << arrBytesPrueba[i];
     }
-    writeArchivo("../lab3/Data_base/codificado.dat", bytesEjGuiaEncript);
+    writeArchivo("../lab3/Data_base/codificado.dat", arrBytesPrueba);
     return 0;
 }
