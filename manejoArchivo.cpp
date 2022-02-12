@@ -1,5 +1,7 @@
 #include <manejoArchivo.h>
 
+
+
 char *rArchivo(char *direccion)
 {
     fstream Archivo;
@@ -25,5 +27,35 @@ bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long t
     for (unsigned long long i=0; i<n; i++) {//se invierte el primer grupo de n bits
         datosEncript[i] = !arrBits[i];
     }
+    unsigned long long indxBits = 0;
+    unsigned long long ceros=0, unos=0;
+    unsigned long long pasos=1;
+    for (unsigned long long indxEncript=n; indxEncript<tamArrBits; indxEncript++) {
+        while(indxBits<indxEncript){ //Se cuentan los 1s y 0s del bloque anterior
+            if(arrBits[indxBits]==0) ceros++;
+            else unos++;
+            indxBits++;
+        }//Cuando sale del while es por que termino de contar los ceros del bloque anterior y indxBits=indxEncript y se empieza con las condciones de la codificacion
+        if(unos==ceros) datosEncript[indxEncript] = !arrBits[indxBits];
+        else if(unos<ceros){
+            if((pasos%2)==0) datosEncript[indxEncript] = !arrBits[indxBits];//Invierte bit cada dos pasos
+            else datosEncript[indxEncript] = arrBits[indxBits];
+        }
+        else if(unos>ceros){
+            if((pasos%3)==0) datosEncript[indxEncript] = !arrBits[indxBits];//Invierte bit cada dos pasos
+            else datosEncript[indxEncript] = arrBits[indxBits];
+        }
+        indxBits++, pasos++;
+        if(pasos>n){//Si pasos>n se termino de recorrer un bloque
+            indxBits -= n; //El indxBits se devuelve al inicio del bloque que se acaba de recorrer
+            pasos = 1; //Pasos se reinicia
+            unos = 0; ceros = 0; //se reinicia el conteo de unos y ceros
+        }
+    }
     return datosEncript;
+}
+
+unsigned long long tamArchivo(char *name)
+{
+
 }

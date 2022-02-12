@@ -6,10 +6,18 @@
 
 using namespace std;
 
+unsigned long long tamArchivo(char *name);
+/*
+name->Direccion del archivo a abrir.
+retorna el tamaño del archivo.
+*/
+
 char *rArchivo(char *cad);
-/* cad->Cadena con el directorio y nombre de archivo a abrir. Ej: "../Lab3/Data_base/natural.txt"
-   lee un archivo.txt(texo natural) y returna una cadena de caracteres que contiene todos los
-   caracteres del texto leido*/
+/*
+cad->Cadena con el directorio y nombre de archivo a abrir. Ej: "../Lab3/Data_base/natural.txt"
+lee un archivo.txt(texo natural) y returna una cadena de caracteres que contiene todos los
+caracteres del texto leido
+*/
 
 bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long tamArrBits);
 /*
