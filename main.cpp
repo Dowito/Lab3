@@ -1,9 +1,15 @@
 #include <manejoArchivo.h>
-using namespace std;
 
 //nombre archivo sin codificar y codificado natural.txt
 //codificado codificado.dat
 //Creacion rama desarrollo metodo1
+
+char* readArchivo(char *cad)
+{
+    fstream archivo;
+    archivo.open("../Lab3/Data_base/codificado.dat", fstream::out | fstream::binary);
+}
+
 int main()
 {
     fstream archivo;

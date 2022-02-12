@@ -1,5 +1,4 @@
 #include <manejoArchivo.h>
-#include <fstream>
 
 char *rArchivo(char *cad)
 {
