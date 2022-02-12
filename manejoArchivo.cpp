@@ -86,5 +86,9 @@ char *bits2Byte(bool *arrBits, unsigned long long tamArrBits)
 
 char *writeArchivo(char *name, char *cad)
 {
-
+    unsigned long long tam = lenCad(cad);
+    fstream Archivo;
+    Archivo.open(name, fstream::out | fstream::binary);
+    Archivo.write(cad, tam);
+    Archivo.close();
 }

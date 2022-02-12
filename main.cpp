@@ -4,6 +4,8 @@
 
 int main()
 {
+    //char cadArr[] = "Mierdas";
+    //char *cadPtr = new char [8]{'M','i','e','r','d','a','s','\0'};
     unsigned long long semilla = 4;
     char cad[] = "../Lab3/Data_base/natural.txt";
     char *cadArchivo = rArchivo(cad);
