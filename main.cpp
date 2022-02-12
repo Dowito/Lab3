@@ -33,7 +33,5 @@ int main()
     }
     bool *EjGuiaEncript;
     EjGuiaEncript = CodificacionMet1(4, EjGuiaBits, 8*tamEjGuia);
-
-
     return 0;
 }

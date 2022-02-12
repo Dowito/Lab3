@@ -37,6 +37,7 @@ bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long t
             indxBits++;
         }//Cuando sale del while es por que termino de contar los ceros del bloque anterior y indxBits=indxEncript y se empieza con las condciones de la codificacion
         if(unos==ceros) datosEncript[indxEncript] = !arrBits[indxBits];
+
         else if(unos<ceros){
             if((pasos%2)==0) datosEncript[indxEncript] = !arrBits[indxBits];//Invierte bit cada dos pasos
             else datosEncript[indxEncript] = arrBits[indxBits];
@@ -55,7 +56,17 @@ bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long t
     return datosEncript;
 }
 
-unsigned long long tamArchivo(char *name)
+unsigned long long tamArchivo(char *direccion)
 {
-
+    fstream Archivo;
+    Archivo.open(direccion, fstream::in | fstream:: binary |fstream::ate);
+    if(Archivo.is_open()){
+        unsigned long long tamArchivo = Archivo.tellg();//Retorna la ultima posicion del archivo
+        Archivo.close();
+        return tamArchivo;
+    }
+    else{
+        cout << "El archivo no existe." << endl;
+        return 0;
+    }
 }

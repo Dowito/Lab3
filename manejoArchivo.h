@@ -6,7 +6,7 @@
 
 using namespace std;
 
-unsigned long long tamArchivo(char *name);
+unsigned long long tamArchivo(char *direccion);
 /*
 name->Direccion del archivo a abrir.
 retorna el tamaño del archivo.
