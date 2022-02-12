@@ -14,6 +14,22 @@ int main()
     for (unsigned long long i=0; i<8*tam; i++) {
         cout << pruebaBits[i];
     }
+    cout << endl;
+    unsigned int num = 0;
+    unsigned int convernum = 0;
+    unsigned long long indx = 0;
+
+    //Pseudo transformador de bits a char, lo hiso para probar si el programa estaba bueno
+    while(indx<8*tam){
+        for (short i=0; i<8; i++) {
+            convernum = pruebaBits[indx] << (7-i);
+            num += (pruebaBits[indx] << (7-i));
+            indx++;
+        }
+        cout << (char)num;
+        num = 0;
+    }
+
 
     return 0;
 }
