@@ -11,4 +11,11 @@ char *rArchivo(char *cad);
    lee un archivo.txt(texo natural) y returna una cadena de caracteres que contiene todos los
    caracteres del texto leido*/
 
+bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long tamArrBits);
+/*
+n->Semilla. segunda la semilla se codificara los datos de manera diferente
+arrBits->Arreglo de booleanos, representan una cadena de bits
+se encripta arrBits.
+Retorna dicha cadena de bits encriptada
+*/
 #endif // MANEJOARCHIVO_H

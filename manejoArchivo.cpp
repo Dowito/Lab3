@@ -18,3 +18,12 @@ char *rArchivo(char *direccion)
         return cad;
     }
 }
+
+bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long tamArrBits)
+{
+    bool *datosEncript = new bool [tamArrBits];
+    for (unsigned long long i=0; i<n; i++) {//se invierte el primer grupo de n bits
+        datosEncript[i] = !arrBits[i];
+    }
+    return datosEncript;
+}

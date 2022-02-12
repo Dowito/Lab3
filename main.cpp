@@ -4,6 +4,7 @@
 
 int main()
 {
+    unsigned long long semilla = 4;
     char cad[] = "../Lab3/Data_base/natural.txt";
     char *cadArchivo = rArchivo(cad);
     cout << *cadArchivo << endl;
@@ -30,5 +31,8 @@ int main()
         cout << (char)num;
         num = 0;
     }
+
+
+
     return 0;
 }
