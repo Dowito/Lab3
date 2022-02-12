@@ -34,6 +34,7 @@ int main()
     }*/
     bool *EjGuiaEncript;
     EjGuiaEncript = CodificacionMet1(4, EjGuiaBits, 8*tamEjGuia);
+    char *bytesEjGuiaEncript = bits2Byte(EjGuiaEncript, 8*tamEjGuia);
 
     //Pruebas a bits2Byte
     //Con EjGuiaBits
@@ -49,6 +50,6 @@ int main()
     for (unsigned long long int i=0; i<tamPrueba; i++) {
         cout << arrBytesPrueba[i];
     }
-    writeArchivo("../Data_base/codificado.dat", arrBytesGuia);
+    writeArchivo("../lab3/Data_base/codificado.dat", bytesEjGuiaEncript);
     return 0;
 }
