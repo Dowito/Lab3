@@ -2,6 +2,7 @@
 #define MANEJOARCHIVO_H
 #include <iostream>
 #include <fstream>
+#include <Auxiliar.h>
 
 using namespace std;
 
