@@ -84,11 +84,14 @@ char *bits2Byte(bool *arrBits, unsigned long long tamArrBits)
     return arrBytes;
 }
 
-char *writeArchivo(char *name, char *cad)
+void writeArchivo(char *name, char *cad)
 {
     unsigned long long tam = lenCad(cad);
     fstream Archivo;
     Archivo.open(name, fstream::out | fstream::binary);
-    Archivo.write(cad, tam);
-    Archivo.close();
+    if (Archivo.is_open()) {
+        Archivo.write(cad, tam);
+        Archivo.close();
+    }
+    else cout << "Archivo no existe";
 }

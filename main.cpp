@@ -38,9 +38,9 @@ int main()
     //Pruebas a bits2Byte
     //Con EjGuiaBits
     cout << "De bits->bytes->caracteres EjGuia: \n";
-    char *arrBytes = bits2Byte(EjGuiaBits, 8*tamEjGuia);
+    char *arrBytesGuia = bits2Byte(EjGuiaBits, 8*tamEjGuia);
     for (unsigned long long i=0; i<tamEjGuia; i++) {
-        cout << arrBytes[i];
+        cout << arrBytesGuia[i];
     }
     cout << endl;
     //Con pruebaBits
@@ -49,6 +49,6 @@ int main()
     for (unsigned long long int i=0; i<tamPrueba; i++) {
         cout << arrBytesPrueba[i];
     }
-
+    writeArchivo("../Data_base/codificado.dat", arrBytesGuia);
     return 0;
 }

@@ -19,7 +19,7 @@ lee un archivo.txt(texo natural) y returna una cadena de caracteres que contiene
 caracteres del texto leido
 */
 
-char *writeArchivo(char *name, char *cad);
+void writeArchivo(char *name, char *cad);
 /*
 name->Cadena de caracteres. Es el nombre del archivo a escribir
 cad->Cadena de caracteres que se escribiran en el texto.
