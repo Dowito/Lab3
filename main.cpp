@@ -6,6 +6,7 @@ int main()
 {
     char cad[] = "../Lab3/Data_base/natural.txt";
     char *cadArchivo = rArchivo(cad);
-    cout << *cadArchivo;
+    cout << *cadArchivo << endl;
+    char arr[4] = {'A','b','C','d'};
     return 0;
 }

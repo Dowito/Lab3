@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        Auxiliar.cpp \
         main.cpp \
         manejoArchivo.cpp
 
@@ -12,4 +13,5 @@ DISTFILES += \
     Data_base/natural.txt
 
 HEADERS += \
+    Auxiliar.h \
     manejoArchivo.h
