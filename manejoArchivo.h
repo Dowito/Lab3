@@ -19,9 +19,10 @@ lee un archivo.txt(texo natural) y returna una cadena de caracteres que contiene
 caracteres del texto leido
 */
 
-char *bits2Byte(bool *arrBits);
+char *bits2Byte(bool *arrBits, unsigned long long tamArrBits);
 /*
 arrBits->arreglo bits.
+tamBits->tamaño de arrBits
 Agrupa 8 bits para formar 1 byte del mas al menos significativo por cada bloque.
 Retorna una cadena de caracteres formado por los bytes resultantes.
 */

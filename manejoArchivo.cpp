@@ -67,7 +67,19 @@ bool *CodificacionMet1(unsigned long long n, bool *arrBits, unsigned long long t
     return datosEncript;
 }
 
-char *bits2Byte(bool *arrBits)
+char *bits2Byte(bool *arrBits, unsigned long long tamArrBits)
 {
-
+    char *arrBytes = new char [tamArrBits/8];
+    unsigned long long indxBits=0, indxBytes=0;
+    char byte = 0;
+    while(indxBits<tamArrBits){ //se recorre todo arrbits
+        for (short i=0; i<8; i++) { //Proceso para agrupar bits en un byte desde el mas al menor significativo
+            byte = byte | (arrBits[indxBits] << (7-i));//se hace un corrimiento de bits y se usa OR. Esto es equivalente a multiplicar por 0b0X*2^(7-i) y luego sumar.
+            indxBits++;
+        }
+        arrBytes[indxBytes] = byte;//El byte obtenido se almacena
+        indxBytes++;
+        byte = 0;
+    }
+    return arrBytes;
 }
