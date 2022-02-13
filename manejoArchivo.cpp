@@ -135,7 +135,7 @@ bool *decodificacionMetodo1(unsigned long long n, bool *arrEncript, unsigned lon
     return arrBits;
 }
 
-void metodo1(unsigned long long semilla, char *inName, char *outName)
+void metodo1C(unsigned long long semilla, char *inName, char *outName)
 {
     unsigned long long tam = tamArchivo(inName);//tamaño
     char *info = readArchivo(inName);//Lectura
@@ -147,4 +147,18 @@ void metodo1(unsigned long long semilla, char *inName, char *outName)
     delete [] infoEncript;
     writeArchivo(outName, infoEncriptBytes);//Escritura
     delete [] infoEncriptBytes;
+}
+
+void metodo1D(unsigned long long semilla, char *inName, char *outName)
+{
+    unsigned long long tam = tamArchivo(inName);//tamaño
+    char *infoEncriptBytes = readArchivo(inName);//Lectura
+    bool *infoEncript = getBits(infoEncriptBytes);//Separar en bits
+    delete[] infoEncriptBytes;
+    bool *infoBits = decodificacionMetodo1(semilla, infoEncript, 8*tam);//decodificacion
+    delete[] infoEncript;
+    char *info = bits2Byte(infoBits, 8*tam);//Convertir a bytes.
+    delete [] infoBits;
+    writeArchivo(outName, info);//Escritura
+    delete [] info;
 }
