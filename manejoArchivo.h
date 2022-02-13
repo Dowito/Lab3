@@ -12,11 +12,11 @@ name->Direccion del archivo a abrir.
 retorna el tamaño del archivo.
 */
 
-char *rArchivo(char *cad);
+char *readArchivo(char *name);
 /*
-cad->Cadena con el directorio y nombre de archivo a abrir. Ej: "../Lab3/Data_base/natural.txt"
-lee un archivo.txt(texo natural) y returna una cadena de caracteres que contiene todos los
-caracteres del texto leido
+cad->Cadena con la ruta y nombre de archivo a abrir. Ej: "../Lab3/Data_base/natural.txt"
+Lee un archivo. (Lo abre en binario)
+Retorna una cadena de caracteres con toda la informacion que hay en el texto.
 */
 
 void writeArchivo(char *name, char *cad);
@@ -24,6 +24,7 @@ void writeArchivo(char *name, char *cad);
 name->Cadena de caracteres. Es el nombre del archivo a escribir
 cad->Cadena de caracteres que se escribiran en el texto.
 Escribe una cadena de caracteres en un texto.
+El texto se abre en modo binario.
 */
 
 char *bits2Byte(bool *arrBits, unsigned long long tamArrBits);
