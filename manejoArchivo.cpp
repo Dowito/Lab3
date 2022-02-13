@@ -44,6 +44,26 @@ void writeArchivo(char *name, char *cad)
     else cout << "Archivo no existe";
 }
 
+bool *getBits(char *cad)
+{
+    unsigned long long tamCad = lenCad(cad);
+    bool *arrBits = new bool [8*tamCad]; //Los bits totales seran 8*tamCad
+    //Transformar cada char de cad en bits y guardarlos desde el mas al menos significativo
+    unsigned long long indxBits = 0;
+    bool bit;//Se guardaran dia bit a bit
+    char copyChar;
+    for (unsigned long long indxCad = 0; indxCad<tamCad; indxCad++) {
+        copyChar = cad[indxCad]; //copia del Caracter al que le sacaremos los bits
+        for (short i = 0; i<8; i++) {
+            bit = copyChar & 0b01; //se saca el bit menos significativo
+            arrBits[indxBits+(7-i)] = bit; //Se iran guardando de esta manera {8,7,6,5,4,3,2,1} ya que vamos sacando dia bit menos significativo y tenemos que guarlos en el arrBits en ese mismo orden
+            copyChar = copyChar>>1; //Corrimiento de bit hacia la derecha.
+        }
+        indxBits+=8;//Saltamos al siguiente bloque
+    }
+    return arrBits;
+}
+
 char *bits2Byte(bool *arrBits, unsigned long long tamArrBits)
 {
     char *arrBytes = new char [(tamArrBits/8)+1]{'\0'};
@@ -161,4 +181,14 @@ void metodo1D(unsigned long long semilla, char *inName, char *outName)
     delete [] infoBits;
     writeArchivo(outName, info);//Escritura
     delete [] info;
+}
+
+bool archivosIguales(char *name1, char *name2)
+{
+    char *info1 = readArchivo(name1);
+    char *info2 = readArchivo(name2);
+    if(ifArrSame(info1, info2, tamArchivo(name1), tamArchivo(name2))){
+        return true;
+    }
+    else return false;
 }

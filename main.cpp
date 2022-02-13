@@ -13,6 +13,11 @@ int main()
     char ejGuia[5] = {'A','b','C','d','\0'};
 
     metodo1C(semilla, M1S6txt, codificado);
+    metodo1D(semilla, codificado, natural);
+
+    if(archivosIguales(M1S6txt, natural)){
+        cout << "Son iguales";
+    }
     return 0;
 }
 
