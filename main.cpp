@@ -10,6 +10,8 @@ int main()
     char codificado[] = "../Lab3/Data_base/codificado.dat";
     char ejGuia[5] = {'A','b','C','d','\0'};
 
+    metodo1(semilla, natural, codificado);
+
     //----Convertir a Bits----------------------------OK
     bool *ejGuiaBits = getBits(ejGuia);
 

@@ -14,7 +14,7 @@ retorna el tamaño del archivo.
 
 char *readArchivo(char *name);
 /*
-cad->Cadena con la ruta y nombre de archivo a abrir. Ej: "../Lab3/Data_base/natural.txt"
+cad->Cadena con la ruta/nombre de archivo a abrir. Ej: "../Lab3/Data_base/natural.txt"
 Lee un archivo. (Lo abre en binario)
 Retorna una cadena de caracteres con toda la informacion que hay en el texto.
 */
@@ -53,9 +53,12 @@ Decodifica a arrEncript
 retorna cadena booleana (bits) desencriptados
 */
 
-void metodo1(unsigned long long semilla);
+void metodo1(unsigned long long semilla, char *inName, char *outName);
 /*
-n->Semilla
-Lee un archivo de texto, lo codifica y lo guarda en un archivo.dat
+semilla->Numero entero necesario para la codificacion.
+inName->Ruta/nombre el archivo que se codificara.
+outName->Ruta/nombre del archivo donde se guardara la informacion encriptada.
+Lee un archivo, lo codifica y guarda la informacion encriptada en otro archivo.
 */
+
 #endif // MANEJOARCHIVO_H
