@@ -53,4 +53,9 @@ Decodifica a arrEncript
 retorna cadena booleana (bits) desencriptados
 */
 
+void metodo1(unsigned long long semilla);
+/*
+n->Semilla
+Lee un archivo de texto, lo codifica y lo guarda en un archivo.dat
+*/
 #endif // MANEJOARCHIVO_H

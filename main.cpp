@@ -5,6 +5,7 @@ int main()
     //Pruebas intensivas :)
     //Probare el ejemplo de la guia
     unsigned long long semilla = 4;
+    short metodo = 1;
     char natural[] = "../Lab3/Data_base/natural.txt";
     char codificado[] = "../Lab3/Data_base/codificado.dat";
     char ejGuia[5] = {'A','b','C','d','\0'};
