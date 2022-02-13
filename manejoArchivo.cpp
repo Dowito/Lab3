@@ -137,6 +137,14 @@ bool *decodificacionMetodo1(unsigned long long n, bool *arrEncript, unsigned lon
 
 void metodo1(unsigned long long semilla, char *inName, char *outName)
 {
-    unsigned long long tam = tamArchivo(inName);
-    char *info = readArchivo(inName);
+    unsigned long long tam = tamArchivo(inName);//tamaño
+    char *info = readArchivo(inName);//Lectura
+    bool *infoBits = getBits(info);//Separar en bits
+    delete[] info;
+    bool *infoEncript = codificacionMetodo1(semilla, infoBits, 8*tam);//Codificacion
+    delete[] infoBits;
+    char *infoEncriptBytes = bits2Byte(infoEncript, 8*tam);//Convertir a bytes.
+    delete [] infoEncript;
+    writeArchivo(outName, infoEncriptBytes);//Escritura
+    delete [] infoEncriptBytes;
 }
