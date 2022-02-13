@@ -43,7 +43,7 @@ Codifica a arrBits.
 Retorna cadena booleana (bits) encriptada
 */
 
-bool *decodificacionMetodo2(unsigned long long n, bool *arrEncript, unsigned long long tamArrEncript);
+bool *decodificacionMetodo1(unsigned long long n, bool *arrEncript, unsigned long long tamArrEncript);
 /*
 n->Semilla
 arrEncript->Arreglo de booleanos(bits)

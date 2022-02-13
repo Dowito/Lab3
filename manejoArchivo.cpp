@@ -95,3 +95,42 @@ bool *codificacionMetodo1(unsigned long long n, bool *arrBits, unsigned long lon
     }
     return datosEncript;
 }
+
+bool *decodificacionMetodo1(unsigned long long n, bool *arrEncript, unsigned long long tamArrEncript)
+{
+    bool *arrBits = new bool [tamArrEncript];
+    for (unsigned long long i=0; i<n; i++) {//se invierte el primer grupo de n bits
+        arrBits[i] = !arrEncript[i];
+    }
+    unsigned long long indxBits = 0;
+    unsigned long long ceros=0, unos=0;
+    unsigned long long pasos=1;
+    /*La decodificacion es practicamente lo mismo, lo unico que cambia son las asignaciones
+        Ya que ahora se trataran son los bits codificados. Los bits que fueron invertidos
+        siguen estando en las mismas posiciones, es como si se detectaran dichos bits y se
+        hiciera el proceso inverso*/
+    for (unsigned long long indxEncript=n; indxEncript<tamArrEncript; indxEncript++) {
+        while(indxBits<indxEncript){ //Se cuentan los 1s y 0s del bloque anterior
+            if(arrBits[indxBits]==0) ceros++;
+            else unos++;
+            indxBits++;
+        }//Cuando sale del while es por que termino de contar los ceros del bloque anterior y indxBits=indxEncript y se empieza con las condciones de la codificacion
+        if(unos==ceros) arrBits[indxBits] = !arrEncript[indxEncript]; //Se cambio el orden de asignacion.
+
+        else if(unos<ceros){
+            if((pasos%2)==0) arrBits[indxBits] = !arrEncript[indxEncript];//Invierte bit cada dos pasos
+            else arrBits[indxBits] = arrEncript[indxEncript];
+        }
+        else if(unos>ceros){
+            if((pasos%3)==0) arrBits[indxBits] = !arrEncript[indxEncript];//Invierte bit cada tres pasos
+            else arrBits[indxBits] = arrEncript[indxEncript];
+        }
+        indxBits++, pasos++;
+        if(pasos>n){//Si pasos>n se termino de recorrer un bloque
+            indxBits -= n; //El indxBits se devuelve al inicio del bloque que se acaba de recorrer
+            pasos = 1; //Pasos se reinicia
+            ceros = 0; unos = 0; //se reinicia el conteo de unos y ceros
+        }
+    }
+    return arrBits;
+}
