@@ -12,7 +12,7 @@ int main()
     char M1S6dat[] = "../Lab3/Data_base/M1S6.dat";
     char ejGuia[5] = {'A','b','C','d','\0'};
 
-    metodo1(semilla, natural, codificado);
+    metodo1(semilla, M1S6txt, codificado);
     return 0;
 }
 
