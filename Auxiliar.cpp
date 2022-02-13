@@ -1,7 +1,5 @@
 #include <Auxiliar.h>
 
-
-
 unsigned long long lenCad(char *cad)
 {
     unsigned int tam = 0;
@@ -9,12 +7,11 @@ unsigned long long lenCad(char *cad)
     return tam;
 }
 
-bool ifArrSame(char *arreglo1, char *arreglo2, unsigned long long tam1, unsigned long long tam2)
+bool ifCadSame(char *cad1, char *cad2)
 {
-    for (unsigned int i = 0; i < tam1; i++) {
-        for (unsigned int j = 0; j < tam2; j++) { //
-            if(arreglo1[i] != arreglo2[j]) return false; //se compara el elemento i del arreglo1 con cada uno de los elemento del arreglo2
-        }
+    if(lenCad(cad1) != lenCad(cad2)) return false;
+    for (unsigned int i = 0; i < lenCad(cad1); i++) {
+        if(cad1[i] != cad2[i]) return false;
     }
     return true;
 }

@@ -44,6 +44,14 @@ void writeArchivo(char *name, char *cad)
     else cout << "Archivo no existe";
 }
 
+bool archivosIguales(char *name1, char *name2)
+{
+    char *info1 = readArchivo(name1);
+    char *info2 = readArchivo(name2);
+    bool filolais = ifCadSame(info1, info2);
+    return filolais;
+}
+
 bool *getBits(char *cad)
 {
     unsigned long long tamCad = lenCad(cad);
@@ -181,14 +189,4 @@ void metodo1D(unsigned long long semilla, char *inName, char *outName)
     delete [] infoBits;
     writeArchivo(outName, info);//Escritura
     delete [] info;
-}
-
-bool archivosIguales(char *name1, char *name2)
-{
-    char *info1 = readArchivo(name1);
-    char *info2 = readArchivo(name2);
-    if(ifArrSame(info1, info2, tamArchivo(name1), tamArchivo(name2))){
-        return true;
-    }
-    else return false;
 }

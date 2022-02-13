@@ -6,12 +6,6 @@
 
 using namespace std;
 
-bool archivosIguales(char *name1, char *name2);
-/*
-name1 y name2 ruta/nombre de los archivos a comprar
-retorna true si son iguales, de lo contrario retorna false
-*/
-
 unsigned long long tamArchivo(char *direccion);
 /*
 name->Direccion del archivo a abrir.
@@ -31,6 +25,12 @@ name->Cadena de caracteres. Es el nombre del archivo a escribir
 cad->Cadena de caracteres que se escribiran en el texto.
 Escribe una cadena de caracteres en un texto.
 El texto se abre en modo binario.
+*/
+
+bool archivosIguales(char *name1, char *name2); //Hice esta funcion para hacer pruebas.
+/*
+name1 y name2 ruta/nombre de los archivos a comprar
+retorna true si son iguales, de lo contrario retorna false
 */
 
 bool *getBits(char *cad);

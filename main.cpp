@@ -15,9 +15,15 @@ int main()
     metodo1C(semilla, M1S6txt, codificado);
     metodo1D(semilla, codificado, natural);
 
-    if(archivosIguales(M1S6txt, natural)){
-        cout << "Son iguales";
+    if(archivosIguales(M1S6dat, codificado)){
+        cout << "Son iguales" << endl;
     }
+    else cout << "No son iguales" << endl;
+
+    if(archivosIguales(M1S6txt, natural)){
+        cout << "Son iguales" << endl;
+    }
+    else cout << "No son iguales" << endl;
     return 0;
 }
 
