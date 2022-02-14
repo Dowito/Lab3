@@ -190,3 +190,8 @@ void metodo1D(unsigned long long semilla, char *inName, char *outName)
     writeArchivo(outName, info);//Escritura
     delete [] info;
 }
+
+void codificacionMetodo2(unsigned long long n, bool *arrBits, unsigned long long tamArrBits)
+{
+
+}
