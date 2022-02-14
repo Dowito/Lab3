@@ -2,8 +2,6 @@
 
 int main()
 {
-    //Pruebas intensivas :)
-    //Probare el ejemplo de la guia
     unsigned long long semilla = 6;
     short metodo = 1;
     char natural[] = "../Lab3/Data_base/natural.txt";
