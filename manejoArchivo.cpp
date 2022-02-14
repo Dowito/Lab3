@@ -80,7 +80,7 @@ void writeArchivo(char *name, char *cad)
 
 void writeArchivo(string name, string str)
 {
-    unsigned long long tam = lenCad(str);
+    unsigned long long tam = str.size();//str.size();
     fstream Archivo;
     Archivo.open(name, fstream::out | fstream::binary);
     if (Archivo.is_open()) {
