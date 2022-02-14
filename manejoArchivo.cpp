@@ -352,3 +352,15 @@ void metodo2C(unsigned long long semilla, string inName, string outName)
     delete [] infoEncript;
     writeArchivo(outName, infoEncriptBytes);//Escritura
 }
+
+void metodo2D(unsigned long long semilla, string inName, string outName)
+{
+    unsigned long long tam = tamArchivo(inName);//tamaño
+    string info = readArchivo(inName);//Lectura
+    bool *infoBits = getBits(info);//Separar en bits
+    bool *infoDeco = decodificacionMetodo2(semilla, infoBits, 8*tam);//Decodificacion
+    delete[] infoBits;
+    string infoDecoBytes = bits2Byte(infoDeco, 8*tam);//Convertir a bytes.
+    delete [] infoDeco;
+    writeArchivo(outName, infoDecoBytes);//Escritura
+}
