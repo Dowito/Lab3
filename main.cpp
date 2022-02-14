@@ -21,9 +21,8 @@ int main()
     bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);
     string infoBytes = bits2ByteStr(infoEncript, 8*tam);
     writeArchivo(codificado, infoBytes);
-
     if(archivosIguales(M1S6txt, natural)) cout <<"Son iguales\n";
-    char *infoCad = readArchivo(naturalCad);
+
     /*
     bool *infoBits = getBits(ejGuia);//Separar en bits
     bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);//Codificacion
