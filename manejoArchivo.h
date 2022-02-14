@@ -82,7 +82,7 @@ outName->Ruta/nombre del archivo donde se guardara la informacion decodificada
 lee un archivo, lo decodifica y guarda la informacion en otro archivo
 */
 
-void codificacionMetodo2(unsigned long long n, bool *arrBits, unsigned long long tamArrBits);
+bool *codificacionMetodo2(unsigned long long n, bool *arrBits, unsigned long long tamArrBits);
 /*
 n->Semilla para la codificacion
 arrBits->Arreglo de booleanos(bits)

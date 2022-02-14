@@ -191,7 +191,27 @@ void metodo1D(unsigned long long semilla, char *inName, char *outName)
     delete [] info;
 }
 
-void codificacionMetodo2(unsigned long long n, bool *arrBits, unsigned long long tamArrBits)
+bool *codificacionMetodo2(unsigned long long n, bool *arrBits, unsigned long long tamArrBits)
 {
-
+    bool *arrEncript = new bool [tamArrBits];
+    unsigned long long pasos=1;
+    unsigned long long indxBits=n-1, indxEncript=0;
+    for (indxEncript=0; indxEncript<tamArrBits; indxEncript++) {
+        if(pasos==1){ //La primera iteracion de cada bloque
+            arrEncript[indxEncript] = arrBits[indxBits]; //El ultimo bit de cada bloque se convierte en el primero
+            indxBits -= (n-1);
+            pasos++;
+        }
+        else if (pasos<(n-1)) { //Solo faltaria codificar hasta el penultimo bit del bloque
+            arrEncript[indxEncript] = arrBits[indxBits];
+            indxBits++;
+            pasos++;
+        }
+        else if (pasos == n) {//Se encripta el penultimo bit que falta y se pasa al siguiente bloque
+            arrEncript[indxEncript] = arrBits[indxBits];
+            indxBits += (n+1); //Ultimo bit del siguiente bloque
+            pasos = 1; //Pasos se reinicia
+        }
+    }
+    return arrEncript;
 }
