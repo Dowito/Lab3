@@ -348,7 +348,7 @@ void metodo2C(unsigned long long semilla, string inName, string outName)
     bool *infoBits = getBits(info);//Separar en bits
     bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);//Codificacion
     delete[] infoBits;
-    string infoEncriptBytes = bits2Byte(infoEncript, 8*tam);//Convertir a bytes.
+    string infoEncriptBytes = bits2ByteStr(infoEncript, 8*tam);//Convertir a bytes.
     delete [] infoEncript;
     writeArchivo(outName, infoEncriptBytes);//Escritura
 }
@@ -360,7 +360,7 @@ void metodo2D(unsigned long long semilla, string inName, string outName)
     bool *infoBits = getBits(info);//Separar en bits
     bool *infoDeco = decodificacionMetodo2(semilla, infoBits, 8*tam);//Decodificacion
     delete[] infoBits;
-    string infoDecoBytes = bits2Byte(infoDeco, 8*tam);//Convertir a bytes.
+    string infoDecoBytes = bits2ByteStr(infoDeco, 8*tam);//Convertir a bytes.
     delete [] infoDeco;
     writeArchivo(outName, infoDecoBytes);//Escritura
 }

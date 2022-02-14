@@ -2,30 +2,21 @@
 
 int main()
 {
-    unsigned long long semilla = 4;
+    unsigned long long semilla = 17;
     short metodo = 2;
-    char naturalCad[] = "../Lab3/Data_base/natural.txt";
     string natural = "../Lab3/Data_base/natural.txt";
-    //char codificado[] = "../Lab3/Data_base/codificado.dat";
     string codificado = "../Lab3/Data_base/codificado.dat";
-    //char M1S6txt[] = "../Lab3/Data_base/M1S6.txt";
     string M1S6txt = "../Lab3/Data_base/M1S6.txt";
-    //char M1S6dat[] = "../Lab3/Data_base/M1S6.dat";
     string M1S6dat = "../Lab3/Data_base/M1S6.dat";
-    char ejGuiaCad[] = {'A','b','C','d','\0'};
+    string M2S17txt = "../Lab3/Data_base/M2S17.txt";
+    string M2S17dat = "../Lab3/Data_base/M2S17.dat";
     string ejGuia = {"AbCd"};
+
+
     //Pruebas metodo2
-    unsigned long long tam = ejGuia.size();//tamaño
-    string info = readArchivo(M1S6txt);
-    bool *infoBits = getBits(ejGuia);
-    bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);
-    infoBits = decodificacionMetodo2(semilla, infoEncript, 8*tam);
-    string infoBytes = bits2ByteStr(infoBits, 8*tam);
-    writeArchivo(natural, infoBytes);
+    metodo2C(semilla, M2S17txt, codificado);
+    if(archivosIguales(M2S17dat, codificado)) cout <<"Son iguales\n";
 
-
-
-    if(archivosIguales(M1S6txt, natural)) cout <<"Son iguales\n";
 
     /*
     bool *infoBits = getBits(ejGuia);//Separar en bits
@@ -46,6 +37,8 @@ int main()
     }
     else cout << "No son iguales" << endl;
     */
+
+
     return 0;
 }
 
