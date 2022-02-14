@@ -201,7 +201,7 @@ bool *codificacionMetodo2(unsigned long long n, bool *arrBits, unsigned long lon
         if (indxBits == (tamArrBits-1)) { //Aqui se trata el ultimo bit del arreglo
             indxEncript -= pasos; //Se retrocede para imprimir ese ultimo bit en el inicio del bloque codificado
             arrEncript[indxEncript] = arrBits[indxBits];
-        }//Este if es para que funcione cuando el ultimo bloque de bits es de menor tamaño
+        }//Asi funciona cuando el ultimo bloque de bits es de menor tamaño.
 
         else { //mientras no sea el ultimo bits del arreglo
             if (pasos != n) {
