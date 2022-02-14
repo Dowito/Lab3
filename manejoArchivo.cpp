@@ -195,22 +195,25 @@ bool *codificacionMetodo2(unsigned long long n, bool *arrBits, unsigned long lon
 {
     bool *arrEncript = new bool [tamArrBits];
     unsigned long long pasos=1;
-    unsigned long long indxBits=n-1, indxEncript=0;
-    for (indxEncript=0; indxEncript<tamArrBits; indxEncript++) {
-        if(pasos==1){ //La primera iteracion de cada bloque
-            arrEncript[indxEncript] = arrBits[indxBits]; //El ultimo bit de cada bloque se convierte en el primero
-            indxBits -= (n-1);
-            pasos++;
-        }
-        else if (pasos<(n-1)) { //Solo faltaria codificar hasta el penultimo bit del bloque
+    unsigned long long indxEncript, indxBits;
+    for (indxBits=0; indxBits<tamArrBits; indxBits++) {
+        if(pasos == 1) indxEncript = indxBits+1; //Corrimiento de bit hacia la derecha
+        if (indxBits == (tamArrBits-1)) { //Aqui se trata el ultimo bit del arreglo
+            indxEncript -= pasos; //Se retrocede para imprimir ese ultimo bit en el inicio del bloque codificado
             arrEncript[indxEncript] = arrBits[indxBits];
-            indxBits++;
-            pasos++;
-        }
-        else if (pasos == n) {//Se encripta el penultimo bit que falta y se pasa al siguiente bloque
-            arrEncript[indxEncript] = arrBits[indxBits];
-            indxBits += (n+1); //Ultimo bit del siguiente bloque
-            pasos = 1; //Pasos se reinicia
+        }//Este if es para que funcione cuando el ultimo bloque de bits es de menor tamaño
+
+        else { //mientras no sea el ultimo bits del arreglo
+            if (pasos != n) {
+                arrEncript[indxEncript] = arrBits[indxBits];
+                pasos++;
+                indxEncript++;
+            }
+            else {//pasos==n
+                indxEncript -= (n-1);
+                arrEncript[indxEncript] = arrBits[indxBits];
+                pasos++;
+            }
         }
     }
     return arrEncript;
