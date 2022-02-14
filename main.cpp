@@ -14,7 +14,7 @@ int main()
     unsigned long long tam = lenCad(ejGuia);//tamaño
     bool *infoBits = getBits(ejGuia);//Separar en bits
     bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);//Codificacion
-
+    infoBits = decodificacionMetodo2(semilla, infoEncript, 8*tam);//Codificacion
     /*
     metodo1C(semilla, M1S6txt, codificado);
     metodo1D(semilla, codificado, natural);
