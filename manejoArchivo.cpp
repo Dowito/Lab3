@@ -130,7 +130,7 @@ bool *getBits(char *cad)
 
 bool *getBits(string str)
 {
-    unsigned long long tamStr = lenCad(str);
+    unsigned long long tamStr = str.size();
     bool *arrBits = new bool [8*tamStr];
     unsigned long long indxBits = 0;
     bool bit;//Se guarda bit a bit

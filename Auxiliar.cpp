@@ -26,7 +26,7 @@ bool ifCadSame(char *cad1, char *cad2)
 bool ifCadSame(string str1, string str2)
 {
     if(str1.size() != str2.size()) return false;
-    for (unsigned int i = 0; i < lenCad(str1); i++) {
+    for (unsigned int i = 0; i < str1.size(); i++) {
         if(str1[i] != str2[i]) return false;
     }
     return true;

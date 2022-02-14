@@ -13,7 +13,7 @@ int main()
     string ejGuia = {"AbCd"};
 
     //Pruebas metodo2
-    metodo2C(semilla, M2S17txt, codificado);
+    //metodo2C(semilla, M2S17txt, codificado);
     if(archivosIguales(M2S17dat, codificado)) cout <<"Son iguales\n";
 
 
