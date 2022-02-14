@@ -6,7 +6,13 @@
 
 using namespace std;
 
-unsigned long long tamArchivo(char *direccion);
+unsigned long long tamArchivo(char *name);
+/*
+name->Direccion del archivo a abrir.
+retorna el tamaño del archivo.
+*/
+
+unsigned long long tamArchivo(string name);
 /*
 name->Direccion del archivo a abrir.
 retorna el tamaño del archivo.
@@ -14,9 +20,16 @@ retorna el tamaño del archivo.
 
 char *readArchivo(char *name);
 /*
-cad->Cadena con la ruta/nombre de archivo a abrir. Ej: "../Lab3/Data_base/natural.txt"
+name->Cadena con la ruta/nombre de archivo a abrir. Ej: "../Lab3/Data_base/natural.txt"
 Lee un archivo. (Lo abre en binario)
 Retorna una cadena de caracteres con toda la informacion que hay en el texto.
+*/
+
+string readArchivo(string name);
+/*
+name->String con la ruta/nombre de archivo a abrir. Ej: "../Lab3/Data_base/natural.txt"
+Lee un archivo. (Lo abre en binario)
+Retorna un string con toda la informacion que hay en el texto.
 */
 
 void writeArchivo(char *name, char *cad);

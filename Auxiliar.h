@@ -1,7 +1,15 @@
 #ifndef AUXILIAR_H
 #define AUXILIAR_H
+#include <iostream>
+using namespace std;
 
-unsigned long long lenCad(char* cad); //Reutilizacion funcion del lab2.
+unsigned long long lenCad(char *cad); //Reutilizacion funcion del lab2.
+/*
+cad -> Es una cadena de caracteres
+Retorna el tamaño de la cadena sin incluir su ultimo caracter nulo
+*/
+
+unsigned long long lenCad(string cad); //Reutilizacion funcion del lab2.
 /*
 cad -> Es una cadena de caracteres
 Retorna el tamaño de la cadena sin incluir su ultimo caracter nulo

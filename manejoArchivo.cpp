@@ -1,9 +1,24 @@
 #include <manejoArchivo.h>
 
-unsigned long long tamArchivo(char *direccion)
+unsigned long long tamArchivo(char *name)
 {
     fstream Archivo;
-    Archivo.open(direccion, fstream::in | fstream:: binary |fstream::ate);
+    Archivo.open(name, fstream::in | fstream:: binary |fstream::ate);
+    if(Archivo.is_open()){
+        unsigned long long tamArchivo = Archivo.tellg();//Retorna la ultima posicion del archivo
+        Archivo.close();
+        return tamArchivo;
+    }
+    else{
+        cout << "El archivo no existe." << endl;
+        return 0;
+    }
+}
+
+unsigned long long tamArchivo(string name)
+{
+    fstream Archivo;
+    Archivo.open(name, fstream::in | fstream:: binary |fstream::ate);
     if(Archivo.is_open()){
         unsigned long long tamArchivo = Archivo.tellg();//Retorna la ultima posicion del archivo
         Archivo.close();
@@ -25,6 +40,25 @@ char *readArchivo(char *name)
         Archivo.read(cad, tam); //Se guarda archivo en cad
         Archivo.close();
         return cad;
+    }
+    else{
+        cout << "El archivo no existe.";
+        return 0;
+    }
+}
+
+string readArchivo(string name)
+{
+    unsigned long long tam = tamArchivo(name);
+    fstream Archivo;
+    Archivo.open(name, fstream::in | fstream:: binary);  //Mode in->Lectura
+    if(Archivo.is_open()){ //Procedemos a guardar el archivo en un string
+        string info;
+        for (unsigned long long i=0; i<tam; i++) {
+            info.push_back(Archivo.get());
+        }
+        Archivo.close();
+        return info;
     }
     else{
         cout << "El archivo no existe.";

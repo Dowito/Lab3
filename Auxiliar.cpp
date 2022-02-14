@@ -7,6 +7,13 @@ unsigned long long lenCad(char *cad)
     return tam;
 }
 
+unsigned long long lenCad(string cad)
+{
+    unsigned int tam = 0;
+    for (unsigned int i = 0; cad[i] != 0; i++) tam++;
+    return tam;
+}
+
 bool ifCadSame(char *cad1, char *cad2)
 {
     if(lenCad(cad1) != lenCad(cad2)) return false;
@@ -15,3 +22,5 @@ bool ifCadSame(char *cad1, char *cad2)
     }
     return true;
 }
+
+
