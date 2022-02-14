@@ -78,6 +78,20 @@ void writeArchivo(char *name, char *cad)
     else cout << "Archivo no existe";
 }
 
+void writeArchivo(string name, string str)
+{
+    unsigned long long tam = lenCad(str);
+    fstream Archivo;
+    Archivo.open(name, fstream::out | fstream::binary);
+    if (Archivo.is_open()) {
+        for (unsigned long long i=0; i<tam; i++) {
+            Archivo.put(str[i]);
+        }
+        Archivo.close();
+    }
+    else cout << "Archivo no existe";
+}
+
 bool archivosIguales(char *name1, char *name2)
 {
     char *info1 = readArchivo(name1);

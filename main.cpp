@@ -4,7 +4,7 @@ int main()
 {
     unsigned long long semilla = 4;
     short metodo = 2;
-    //char natural[] = "../Lab3/Data_base/natural.txt";
+    char naturalCad[] = "../Lab3/Data_base/natural.txt";
     string natural = "../Lab3/Data_base/natural.txt";
     //char codificado[] = "../Lab3/Data_base/codificado.dat";
     string codificado = "../Lab3/Data_base/codificado.dat";
@@ -12,13 +12,13 @@ int main()
     string M1S6txt = "../Lab3/Data_base/M1S6.txt";
     //char M1S6dat[] = "../Lab3/Data_base/M1S6.dat";
     string M1S6dat = "../Lab3/Data_base/M1S6.dat";
-    //char ejGuia[] = {'A','b','C','d','\0'};
+    char ejGuiaCad[] = {'A','b','C','d','\0'};
     string ejGuia = {"AbCd"};
     //Pruebas metodo2
     unsigned long long tam = lenCad(ejGuia);//tamaño
 
     string info = readArchivo(natural);
-
+    char *infoCad = readArchivo(naturalCad);
     /*
     bool *infoBits = getBits(ejGuia);//Separar en bits
     bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);//Codificacion

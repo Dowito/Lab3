@@ -40,6 +40,14 @@ Escribe una cadena de caracteres en un texto.
 El texto se abre en modo binario.
 */
 
+void writeArchivo(string name, string str);
+/*
+name->string. Es la Ruta/nombre del archivo a escribir
+str->string que se escribira en el texto.
+Escribe un string en un texto.
+El texto se abre en modo binario.
+*/
+
 bool archivosIguales(char *name1, char *name2); //Hice esta funcion para hacer pruebas.
 /*
 name1 y name2 ruta/nombre de los archivos a comprar
