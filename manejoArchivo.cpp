@@ -210,11 +210,16 @@ bool *codificacionMetodo2(unsigned long long n, bool *arrBits, unsigned long lon
                 indxEncript++;
             }
             else {//pasos==n
-                indxEncript -= (n-1);
+                indxEncript -= n;
                 arrEncript[indxEncript] = arrBits[indxBits];
-                pasos++;
+                pasos = 1;//se termina de codificar un bloque
             }
         }
     }
     return arrEncript;
+}
+
+bool *decodificacionMetodo2(unsigned long long n, bool *arrEncript, unsigned long long tamArrEncript)
+{
+
 }

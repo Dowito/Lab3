@@ -10,7 +10,7 @@ int main()
     char M1S6dat[] = "../Lab3/Data_base/M1S6.dat";
     char ejGuia[] = {'A','b','C','d','\0'};
     //Pruebas metodo2
-    unsigned long long tam = sizeof(ejGuia);//tamaño
+    unsigned long long tam = lenCad(ejGuia);//tamaño
     bool *infoBits = getBits(ejGuia);//Separar en bits
     bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);//Codificacion
 
