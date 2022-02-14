@@ -343,5 +343,12 @@ bool *decodificacionMetodo2(unsigned long long n, bool *arrEncript, unsigned lon
 
 void metodo2C(unsigned long long semilla, string inName, string outName)
 {
-
+    unsigned long long tam = tamArchivo(inName);//tamaño
+    string info = readArchivo(inName);//Lectura
+    bool *infoBits = getBits(info);//Separar en bits
+    bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);//Codificacion
+    delete[] infoBits;
+    string infoEncriptBytes = bits2Byte(infoEncript, 8*tam);//Convertir a bytes.
+    delete [] infoEncript;
+    writeArchivo(outName, infoEncriptBytes);//Escritura
 }

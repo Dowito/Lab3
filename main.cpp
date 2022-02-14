@@ -19,8 +19,9 @@ int main()
     string info = readArchivo(M1S6txt);
     bool *infoBits = getBits(ejGuia);
     bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);
-    string infoBytes = bits2ByteStr(infoEncript, 8*tam);
-    writeArchivo(codificado, infoBytes);
+    infoBits = decodificacionMetodo2(semilla, infoEncript, 8*tam);
+    string infoBytes = bits2ByteStr(infoBits, 8*tam);
+    writeArchivo(natural, infoBytes);
 
 
 
