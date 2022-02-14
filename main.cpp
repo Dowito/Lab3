@@ -12,7 +12,8 @@ int main()
     string M2S17dat = "../Lab3/Data_base/M2S17.dat";
     string ejGuia = {"AbCd"};
 
-
+    string info = readArchivo(M2S17txt);
+    writeArchivo(natural, info);
     //Pruebas metodo2
     metodo2C(semilla, M2S17txt, codificado);
     if(archivosIguales(M2S17dat, codificado)) cout <<"Son iguales\n";
