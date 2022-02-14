@@ -15,9 +15,13 @@ int main()
     char ejGuiaCad[] = {'A','b','C','d','\0'};
     string ejGuia = {"AbCd"};
     //Pruebas metodo2
-    unsigned long long tam = lenCad(ejGuia);//tamaño
+    unsigned long long tam = ejGuia.size();//tamaño
+    string info = readArchivo(M1S6txt);
+    bool *infoBits = getBits(ejGuia);
+    string infoBytes = bits2ByteStr(infoBits, 8*tam);
+    writeArchivo(natural, info);
 
-    string info = readArchivo(natural);
+    if(archivosIguales(M1S6txt, natural)) cout <<"Son iguales\n";
     char *infoCad = readArchivo(naturalCad);
     /*
     bool *infoBits = getBits(ejGuia);//Separar en bits

@@ -100,6 +100,14 @@ bool archivosIguales(char *name1, char *name2)
     return filolais;
 }
 
+bool archivosIguales(string name1, string name2)
+{
+    string info1 = readArchivo(name1);
+    string info2 = readArchivo(name2);
+    bool filolais = ifCadSame(info1, info2);
+    return filolais;
+}
+
 bool *getBits(char *cad)
 {
     unsigned long long tamCad = lenCad(cad);
@@ -110,6 +118,25 @@ bool *getBits(char *cad)
     char copyChar;
     for (unsigned long long indxCad = 0; indxCad<tamCad; indxCad++) {
         copyChar = cad[indxCad]; //copia del Caracter al que le sacaremos los bits
+        for (short i = 0; i<8; i++) {
+            bit = copyChar & 0b01; //se saca el bit menos significativo
+            arrBits[indxBits+(7-i)] = bit; //Se iran guardando de esta manera {8,7,6,5,4,3,2,1} ya que vamos sacando dia bit menos significativo y tenemos que guarlos en el arrBits en ese mismo orden
+            copyChar = copyChar>>1; //Corrimiento de bit hacia la derecha.
+        }
+        indxBits+=8;//Saltamos al siguiente bloque
+    }
+    return arrBits;
+}
+
+bool *getBits(string str)
+{
+    unsigned long long tamStr = lenCad(str);
+    bool *arrBits = new bool [8*tamStr];
+    unsigned long long indxBits = 0;
+    bool bit;//Se guarda bit a bit
+    char copyChar;
+    for (unsigned long long indxStr = 0; indxStr<tamStr; indxStr++) {
+        copyChar = str[indxStr]; //copia del Caracter al que le sacaremos los bits
         for (short i = 0; i<8; i++) {
             bit = copyChar & 0b01; //se saca el bit menos significativo
             arrBits[indxBits+(7-i)] = bit; //Se iran guardando de esta manera {8,7,6,5,4,3,2,1} ya que vamos sacando dia bit menos significativo y tenemos que guarlos en el arrBits en ese mismo orden
@@ -132,6 +159,23 @@ char *bits2Byte(bool *arrBits, unsigned long long tamArrBits)
         }
         arrBytes[indxBytes] = byte;//El byte obtenido se almacena
         indxBytes++;
+        byte = 0;
+    }
+    return arrBytes;
+}
+
+string bits2ByteStr(bool *arrBits, unsigned long long tamArrBits)
+{
+    string arrBytes;
+    unsigned long long indxBits=0; //indxBytes=0;
+    char byte = 0;
+    while(indxBits<tamArrBits){ //se recorre todo arrbits
+        for (short i=0; i<8; i++) { //Proceso para agrupar bits en un byte desde el mas al menor significativo
+            byte = byte | (arrBits[indxBits] << (7-i));//se hace un corrimiento de bits y se usa OR. Esto es equivalente a multiplicar por 0b0X*2^(7-i) y luego sumar.
+            indxBits++;
+        }
+        arrBytes.push_back(byte);//arrBytes[indxBytes] = byte;//El byte obtenido se almacena
+        //indxBytes++;
         byte = 0;
     }
     return arrBytes;

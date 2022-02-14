@@ -54,10 +54,23 @@ name1 y name2 ruta/nombre de los archivos a comprar
 retorna true si son iguales, de lo contrario retorna false
 */
 
+bool archivosIguales(string name1, string name2); //Hice esta funcion para hacer pruebas.
+/*
+name1 y name2 ruta/nombre de los archivos a comparar
+retorna true si los archivos son iguales, de lo contrario retorna false
+*/
+
 bool *getBits(char *cad);
 /*
 *cad->Recibe una cadena de caracteres
 Guarda cada uno de los bits totales de cad de manera individual en un arreglo
+de booleanos
+*/
+
+bool *getBits(string str);
+/*
+*str->Recibe un string
+Guarda cada uno de los bits de str de manera individual en un arreglo
 de booleanos
 */
 
@@ -67,6 +80,14 @@ arrBits->arreglo bits.
 tamBits->tamaño de arrBits
 Agrupa 8 bits para formar 1 byte del mas al menos significativo por cada bloque.
 Retorna una cadena de caracteres formado por los bytes resultantes.
+*/
+
+string bits2ByteStr(bool *arrBits, unsigned long long tamArrBits);
+/*
+arrBits->arreglo de bits.
+tamBits->tamaño de arrBits
+Agrupa 8 bits para forma un byte por cada bloque.
+Retorna un string formado por los bytes resultantes.
 */
 
 bool *codificacionMetodo1(unsigned long long n, bool *arrBits, unsigned long long tamArrBits);

@@ -23,4 +23,11 @@ bool ifCadSame(char *cad1, char *cad2)
     return true;
 }
 
-
+bool ifCadSame(string str1, string str2)
+{
+    if(lenCad(str1) != lenCad(str2)) return false;
+    for (unsigned int i = 0; i < lenCad(str1); i++) {
+        if(str1[i] != str2[i]) return false;
+    }
+    return true;
+}
