@@ -221,5 +221,30 @@ bool *codificacionMetodo2(unsigned long long n, bool *arrBits, unsigned long lon
 
 bool *decodificacionMetodo2(unsigned long long n, bool *arrEncript, unsigned long long tamArrEncript)
 {
+    //Es lo mismo que la codificacion, lo unico que cambia es el orden de asignacion
+    bool *arrBits = new bool [tamArrEncript];
+    unsigned long long pasos=1;
+    unsigned long long indxEncript, indxBits;
+    for (indxBits=0; indxBits<tamArrEncript; indxBits++) {
+        if(pasos == 1) indxEncript = indxBits+1; //Corrimiento de bit hacia la derecha
 
+        if (indxBits == (tamArrEncript-1)) { //Aqui se trata el ultimo bit del arreglo
+            indxEncript -= pasos; //Se retrocede para imprimir ese ultimo bit en el inicio del bloque codificado
+            arrBits[indxBits] = arrEncript[indxEncript];
+        }//Asi funciona cuando el ultimo bloque de bits es de menor tamaño.
+
+        else { //mientras no sea el ultimo bits del arreglo
+            if (pasos != n) {
+                arrBits[indxBits] = arrEncript[indxEncript];
+                pasos++;
+                indxEncript++;
+            }
+            else {//pasos==n
+                indxEncript -= n;
+                arrBits[indxBits] = arrEncript[indxEncript];
+                pasos = 1;//se termina de codificar un bloque
+            }
+        }
+    }
+    return arrBits;
 }
