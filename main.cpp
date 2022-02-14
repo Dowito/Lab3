@@ -18,8 +18,9 @@ int main()
     unsigned long long tam = ejGuia.size();//tamaño
     string info = readArchivo(M1S6txt);
     bool *infoBits = getBits(ejGuia);
-    string infoBytes = bits2ByteStr(infoBits, 8*tam);
-    writeArchivo(natural, info);
+    bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);
+    string infoBytes = bits2ByteStr(infoEncript, 8*tam);
+    writeArchivo(codificado, infoBytes);
 
     if(archivosIguales(M1S6txt, natural)) cout <<"Son iguales\n";
     char *infoCad = readArchivo(naturalCad);
