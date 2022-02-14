@@ -340,3 +340,8 @@ bool *decodificacionMetodo2(unsigned long long n, bool *arrEncript, unsigned lon
     }
     return arrBits;
 }
+
+void metodo2C(unsigned long long semilla, string inName, string outName)
+{
+
+}

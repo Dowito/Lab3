@@ -142,4 +142,12 @@ Decodifica a arrEncript
 retorna cadena booleana (bits) desencriptados
 */
 
+void metodo2C(unsigned long long semilla, string inName, string outName);
+/*
+semilla->Numero entero necesario para la codificacion.
+inName->Ruta/nombre del archivo que se codificara.
+outName->Ruta/nombre del archivo donde se guardara la informacion encriptada.
+Lee un archivo, lo codifica y guarda la informacion encriptada en otro archivo.
+*/
+
 #endif // MANEJOARCHIVO_H
