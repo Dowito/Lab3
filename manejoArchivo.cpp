@@ -259,13 +259,13 @@ void metodo1C(unsigned long long semilla, char *inName, char *outName)
 {
     unsigned long long tam = tamArchivo(inName);//tamaño
     char *info = readArchivo(inName);//Lectura
-    bool *infoBits = getBits(info);//Separar en bits
+    bool *infoBits = getBits(info, tam);//Separar en bits
     delete[] info;
     bool *infoEncript = codificacionMetodo1(semilla, infoBits, 8*tam);//Codificacion
     delete[] infoBits;
     char *infoEncriptBytes = bits2Byte(infoEncript, 8*tam);//Convertir a bytes.
     delete [] infoEncript;
-    writeArchivo(outName, infoEncriptBytes);//Escritura
+    writeArchivo(outName, infoEncriptBytes, tam);//Escritura
     delete [] infoEncriptBytes;
 }
 
@@ -273,13 +273,13 @@ void metodo1D(unsigned long long semilla, char *inName, char *outName)
 {
     unsigned long long tam = tamArchivo(inName);//tamaño
     char *infoEncriptBytes = readArchivo(inName);//Lectura
-    bool *infoEncript = getBits(infoEncriptBytes);//Separar en bits
+    bool *infoEncript = getBits(infoEncriptBytes, tam);//Separar en bits
     delete[] infoEncriptBytes;
     bool *infoBits = decodificacionMetodo1(semilla, infoEncript, 8*tam);//decodificacion
     delete[] infoEncript;
     char *info = bits2Byte(infoBits, 8*tam);//Convertir a bytes.
     delete [] infoBits;
-    writeArchivo(outName, info);//Escritura
+    writeArchivo(outName, info, tam);//Escritura
     delete [] info;
 }
 
