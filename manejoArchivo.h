@@ -32,10 +32,11 @@ Lee un archivo. (Lo abre en binario)
 Retorna un string con toda la informacion que hay en el texto.
 */
 
-void writeArchivo(char *name, char *cad);
+void writeArchivo(char *name, char *cad, unsigned long long tam);
 /*
 name->Cadena de caracteres. Es el nombre del archivo a escribir
 cad->Cadena de caracteres que se escribiran en el texto.
+tam->tam de cad, o hasta que posicion se va a escribir.
 Escribe una cadena de caracteres en un texto.
 El texto se abre en modo binario.
 */
@@ -60,9 +61,10 @@ name1 y name2 ruta/nombre de los archivos a comparar
 retorna true si los archivos son iguales, de lo contrario retorna false
 */
 
-bool *getBits(char *cad);
+bool *getBits(char *cad, unsigned long long tamCad);
 /*
 *cad->Recibe una cadena de caracteres
+tamCad->Tamaño de cad
 Guarda cada uno de los bits totales de cad de manera individual en un arreglo
 de booleanos
 */

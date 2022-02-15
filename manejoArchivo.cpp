@@ -66,9 +66,9 @@ string readArchivo(string name)
     }
 }
 
-void writeArchivo(char *name, char *cad)
+void writeArchivo(char *name, char *cad, unsigned long long tam)
 {
-    unsigned long long tam = lenCad(cad);
+    //unsigned long long tam = lenCad(cad);
     fstream Archivo;
     Archivo.open(name, fstream::out | fstream::binary);
     if (Archivo.is_open()) {
@@ -108,9 +108,9 @@ bool archivosIguales(string name1, string name2)
     return filolais;
 }
 
-bool *getBits(char *cad)
+bool *getBits(char *cad, unsigned long long tamCad)
 {
-    unsigned long long tamCad = lenCad(cad);
+    //unsigned long long tamCad = lenCad(cad);
     bool *arrBits = new bool [8*tamCad]; //Los bits totales seran 8*tamCad
     //Transformar cada char de cad en bits y guardarlos desde el mas al menos significativo
     unsigned long long indxBits = 0;
