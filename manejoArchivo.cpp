@@ -365,12 +365,19 @@ void metodo2D(unsigned long long semilla, string inName, string outName)
     writeArchivo(outName, infoDecoBytes);//Escritura
 }
 
-
-string getInfo(unsigned long long semilla, string inName)
+string info2Encript(unsigned long long semilla, string info, unsigned long long tam)
 {
-    unsigned long long tam = tamArchivo(inName);//tamaño
-    string info = readArchivo(inName);//Lectura
     bool *infoBits = getBits(info);//Separar en bits
+    bool *infoEncript = codificacionMetodo2(semilla, infoBits, 8*tam);//Codificacion
+    delete[] infoBits;
+    string infoEncriptBytes = bits2ByteStr(infoEncript, 8*tam);//Convertir a bytes.
+    delete [] infoEncript;
+    return infoEncriptBytes;
+}
+
+string encript2Info(unsigned long long semilla, string encript, unsigned long long tam)
+{
+    bool *infoBits = getBits(encript);//Separar en bits
     bool *infoDeco = decodificacionMetodo2(semilla, infoBits, 8*tam);//Decodificacion
     delete[] infoBits;
     string infoDecoBytes = bits2ByteStr(infoDeco, 8*tam);//Convertir a bytes.
@@ -378,4 +385,9 @@ string getInfo(unsigned long long semilla, string inName)
     return infoDecoBytes;
 }
 
-
+void addArchivo(string outName, string str)
+{
+    string info = readArchivo(outName);
+    info.append(str);
+    writeArchivo(outName, info);
+}

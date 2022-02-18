@@ -160,9 +160,26 @@ outName->Ruta/nombre del archivo donde se guardara la informacion decodificada
 lee un archivo, lo decodifica y guarda la informacion en otro archivo
 */
 
-string getInfo(unsigned long long semilla, string inName);
+string info2Encript(unsigned long long semilla, string info, unsigned long long tam);
 /*
-Retorna un string con la info decodificada de un texto.
+semilla->Semilla para la decodificacion
+info->String que se codificara
+tam->Tam de info
+Retorna info encriptado
+*/
+
+string encript2Info(unsigned long long semilla, string encript, unsigned long long tam);
+/*
+semilla->Semilla para la decodificacion
+encript->String que se decodificara
+tam->Tam de encript
+Retorna encript decodificado.
+*/
+
+void addArchivo(string outName, string str);
+/*
+outName->ruta/nombre del archivo
+str-> string que se agregara a outName
 */
 
 #endif // MANEJOARCHIVO_H
