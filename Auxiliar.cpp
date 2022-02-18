@@ -31,3 +31,13 @@ bool ifCadSame(string str1, string str2)
     }
     return true;
 }
+
+
+string inString()
+{
+    string str;
+    getline(cin, str);
+    return str;
+}
+
+

@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         Auxiliar.cpp \
+        Cajero.cpp \
         main.cpp \
         manejoArchivo.cpp
 
@@ -16,8 +17,11 @@ DISTFILES += \
     Data_base/codificado.dat \
     Data_base/natural.txt \
     Data_base/prueba.txt \
-    Data_base/pruebaCod.dat
+    Data_base/pruebaCod.dat \
+    Data_base/sudo.txt \
+    Data_base/usuario.dat
 
 HEADERS += \
     Auxiliar.h \
+    Cajero.h \
     manejoArchivo.h

@@ -1,5 +1,5 @@
 #include <manejoArchivo.h>
-
+//cin funciona como si fuera un stream, Todas las funciones qu sirven para archivos se podrian usar con cin.
 unsigned long long tamArchivo(char *name)
 {
     fstream Archivo;
@@ -364,3 +364,18 @@ void metodo2D(unsigned long long semilla, string inName, string outName)
     delete [] infoDeco;
     writeArchivo(outName, infoDecoBytes);//Escritura
 }
+
+
+string getInfo(unsigned long long semilla, string inName)
+{
+    unsigned long long tam = tamArchivo(inName);//tamaño
+    string info = readArchivo(inName);//Lectura
+    bool *infoBits = getBits(info);//Separar en bits
+    bool *infoDeco = decodificacionMetodo2(semilla, infoBits, 8*tam);//Decodificacion
+    delete[] infoBits;
+    string infoDecoBytes = bits2ByteStr(infoDeco, 8*tam);//Convertir a bytes.
+    delete [] infoDeco;
+    return infoDecoBytes;
+}
+
+

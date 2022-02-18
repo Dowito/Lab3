@@ -27,4 +27,8 @@ str1 y str2 strings a comparar
 retorna true si str1 y str2 son iguales de lo contrario retorna false
 */
 
+string inString();
+/*
+Retorna un string ingresado por consola
+*/
 #endif // AUXILIAR_H

@@ -160,4 +160,9 @@ outName->Ruta/nombre del archivo donde se guardara la informacion decodificada
 lee un archivo, lo decodifica y guarda la informacion en otro archivo
 */
 
+string getInfo(unsigned long long semilla, string inName);
+/*
+Retorna un string con la info decodificada de un texto.
+*/
+
 #endif // MANEJOARCHIVO_H
