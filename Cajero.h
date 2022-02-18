@@ -20,9 +20,21 @@ str-> string con formato: "cedula, clave, saldo (COP)\n"
 
 bool findCedula(string infoUsers, string cedula, unsigned long long &pos);
 /*
-semilla->semilla para la decodificacion
 infoUsers->String con la informacion de todos los usuarios
 cedula->Cedula que se buscara en inforUsers
+pos->variable donde se guardara la posicion de la cedula
+retorna true si encuentra la cedula dentro de infoUsers, y por referencia a pos le asigna el valor
+de la posicion de la primera coindicencia.
+retorna false si no hay coincidencia
 */
 
+bool validarClave(string infoUsers, string clave, unsigned long long &pos);
+/*
+infoUsers->string con la informacion de todos los usuarios
+clave->contraseña del usuario
+pos->posicion donde empieza la cedula del usuario
+Apartir de infoUsers[pos] se verifica si la contraseña de dicho usuario y la que se ingreso
+coinciden.
+retorna true si hay coindidencia, false de lo contrario
+*/
 #endif // CAJERO_H

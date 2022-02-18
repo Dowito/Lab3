@@ -36,3 +36,8 @@ bool findCedula(string infoUsers, string cedula, unsigned long long &pos)
     else return false;
 }
 
+
+bool validarClave(string infoUsers, string clave, unsigned long long &pos)
+{
+
+}
