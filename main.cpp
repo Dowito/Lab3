@@ -1,6 +1,6 @@
 #include <manejoArchivo.h>
 
-//Solucionar problema de funciones con lenCad, Si hay un '\0' en medio del texto se jode
+//Cajero automatico.
 int main()
 {
     unsigned long long semilla = 5;
