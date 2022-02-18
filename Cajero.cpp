@@ -20,9 +20,9 @@ void addUser(unsigned long long semilla, string users, string newUser)
 {
     unsigned long long tam = tamArchivo(users); //Tamaño de users
     string usersEncript = readArchivo(users); //Lee archivo
-    string usersDeco = encript2Info(semilla, users, tam); //Lo decodifica
-    usersDeco.append(newUser+'\n'); //Agrega al nuevo usuario y al final pone un salto de linea
-    usersEncript = info2Encript(semilla, usersDeco, tam+(newUser.size()));//Vuelve a encriptarlo pero con el nuevo usuario agregado
-    writeArchivo(users, usersDeco);//Guarda todo en users con los usuario encriptados
+    string usersDeco = encript2Info(semilla, usersEncript, tam); //Lo decodifica
+    usersDeco.append(newUser+"\n"); //Agrega al nuevo usuario y al final pone un salto de linea
+    usersEncript = info2Encript(semilla, usersDeco, usersDeco.size());//Vuelve a encriptarlo pero con el nuevo usuario agregado
+    writeArchivo(users, usersEncript);//Guarda todo en users con los usuario encriptados
 }
 

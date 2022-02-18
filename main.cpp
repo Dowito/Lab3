@@ -4,7 +4,7 @@
 //Contra cacatua
 int main()
 {
-    unsigned long long semilla = 5;
+    unsigned long long semilla = 4;
     short metodo = 2;
     string natural = "../Lab3/Data_base/natural.txt";
     string codificado = "../Lab3/Data_base/codificado.dat";
@@ -12,7 +12,8 @@ int main()
     string usuariodat = "../lab3/Data_base/usuario.dat";
     string pruebas = "../lab3/Data_base/pruebas.txt";
 
-    addUser(semilla, usuariodat, "1039473685, 123, saldo (10)");
+    natural =inString();
+    addUser(semilla, usuariodat, "AbCd");
     metodo2D(semilla, usuariodat, pruebas);
     return 0;
 }
