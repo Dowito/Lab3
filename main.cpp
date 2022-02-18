@@ -12,9 +12,11 @@ int main()
     string usuariodat = "../lab3/Data_base/usuario.dat";
     string pruebas = "../lab3/Data_base/pruebas.txt";
 
-    natural =inString();
-    addUser(semilla, usuariodat, "AbCd");
-    metodo2D(semilla, usuariodat, pruebas);
+    unsigned long long caca =23;
+
+    findCedula(natural, "Lab3", caca);
+    //addUser(semilla, usuariodat, "1230974, berengena, saldo(100)");
+    //metodo2D(semilla, usuariodat, pruebas);
     return 0;
 }
 

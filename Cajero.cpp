@@ -26,3 +26,13 @@ void addUser(unsigned long long semilla, string users, string newUser)
     writeArchivo(users, usersEncript);//Guarda todo en users con los usuario encriptados
 }
 
+bool findCedula(string infoUsers, string cedula, unsigned long long &pos)
+{
+    unsigned long long posCedula = infoUsers.find(cedula);
+    if (posCedula != -1) { //la funcion find retorna -1 si no encuentra coincidencia.
+        pos = posCedula;
+        return true;
+    }
+    else return false;
+}
+

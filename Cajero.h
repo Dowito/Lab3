@@ -18,4 +18,11 @@ users->Archivo donde estasn los usuarios almacenados de forma ecriptada
 str-> string con formato: "cedula, clave, saldo (COP)\n"
 */
 
+bool findCedula(string infoUsers, string cedula, unsigned long long &pos);
+/*
+semilla->semilla para la decodificacion
+infoUsers->String con la informacion de todos los usuarios
+cedula->Cedula que se buscara en inforUsers
+*/
+
 #endif // CAJERO_H
