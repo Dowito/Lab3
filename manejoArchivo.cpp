@@ -391,3 +391,10 @@ void addArchivo(string outName, string str)
     info.append(str);
     writeArchivo(outName, info);
 }
+
+string fEncript2StrDeco(unsigned long long semilla, string inName)
+{
+    string infoUsersEncript = readArchivo(inName);
+    string infoUsers = encript2Info(semilla, infoUsersEncript, infoUsersEncript.size());
+    return infoUsers;
+}

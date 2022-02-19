@@ -182,4 +182,9 @@ outName->ruta/nombre del archivo
 str-> string que se agregara a outName
 */
 
+string fEncript2StrDeco(unsigned long long semilla, string inName);
+/*
+lee un archivo encriptado, lo decodifica y lo retorna en string
+*/
+
 #endif // MANEJOARCHIVO_H

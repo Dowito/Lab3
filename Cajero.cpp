@@ -54,11 +54,11 @@ bool validarUsuario(unsigned long long semilla, string inName, unsigned long lon
     string infoUsersEncript = readArchivo(inName);
     string infoUsers = encript2Info(semilla, infoUsersEncript, infoUsersEncript.size());
     cout << "Ingrese su cedula:\n->";
-    string cedula = "1039473685"; //inString();
+    string cedula = "3193659022"; //inString();
     clean();
     if(validarCedula(infoUsers, cedula, pos)) { //Si el usuario esta registrado
         cout << "Ingrese su clave:\n->";
-        string clave = "cacaroto"; //inString();
+        string clave = "Diovana"; //inString();
         clean();
         if(validarClave(infoUsers, clave, pos)){
             return true;
@@ -81,5 +81,14 @@ void impSaldo(string infoUsers, unsigned long long &pos)
         cout << infoUsers[pos];
         pos++;
     }
-    cout << " COP\n";
+    cout << "COP\n";
 }
+
+void retirarSaldo(string infoUsers, unsigned long long &pos)
+{
+    pos = (infoUsers.find('(', pos));
+    string infoRetiro;
+    for (unsigned long long i = 0; i<=pos; i++) {
+        infoRetiro.push_back(infoRetiro[i]);
+    }
+ }

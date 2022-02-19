@@ -38,14 +38,27 @@ coinciden.
 retorna true si hay coindidencia, false de lo contrario
 */
 
-void impSaldo(string infoUsers, unsigned long long &pos);
-/*
-Imprime el saldo de un usuario
-*/
-
 bool validarUsuario(unsigned long long semilla, string inName, unsigned long long &pos);
 /*
 semilla->Semilla para la decodificacion
-inName->ruta, nombre de la base de datos de los usuarios
+inName->ruta/nombre de la base de datos de los usuarios
+&pos->variable que se modificara por referencia. se inicia en 0
+retorna true si un usuario a ingresado con exito de lo contrario
+retorna false
 */
+
+void impSaldo(string infoUsers, unsigned long long &pos);
+/*
+infoUsers->string con la informacion de todos los usuarios
+&pos->posicion correspondiente al saldo del usuario
+Imprime el saldo de un usuario
+*/
+
+void retirarSaldo(string infoUsers, unsigned long long &pos);
+/*
+infoUsers->string con la informacion de todos los usuarios
+&pos->posicion correspondiente al saldo del usuario
+retirar saldo de un usuario
+*/
+
 #endif // CAJERO_H

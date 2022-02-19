@@ -14,13 +14,16 @@ int main()
     string usuario = "1230974, berengena, saldo(100)";
 
     unsigned long long pos;
-    if(validarUsuario(semilla, usuariodat, pos)) cout << "Pito" << endl;
-
+    if(validarUsuario(semilla, usuariodat, pos)) cout << "Usuario valido" << endl;
+    clean();
+    string infoUsers = fEncript2StrDeco(semilla, usuariodat);
+    impSaldo(infoUsers, pos);
 
     //addUser(semilla, usuariodat, "1230974, berengena, saldo(100)");
     //metodo2D(semilla, usuariodat, pruebas);
     return 0;
 }
+
 
 
 
