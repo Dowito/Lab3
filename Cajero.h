@@ -61,4 +61,5 @@ infoUsers->string con la informacion de todos los usuarios
 retirar saldo de un usuario
 */
 
+
 #endif // CAJERO_H

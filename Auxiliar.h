@@ -44,4 +44,9 @@ str --> string de caracteres numericos sin signo
 convierte un string de caracteres numericos en un entero
 */
 
+string num2Str(unsigned long long num);
+/*
+convierte numero entero positivo en un string
+*/
+
 #endif // AUXILIAR_H

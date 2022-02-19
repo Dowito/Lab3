@@ -97,7 +97,11 @@ void retirarSaldo(string infoUsers, unsigned long long &pos)
         saldo.push_back(infoUsers[pos]); //Se separa el saldo
         pos++;
     }
-    unsigned long retiro;
+    unsigned long long saldoNum;
+    unsigned long long retiro;
+    saldoNum = str2Num(saldo);
     cout << "Cuanto desea retirar:\n->";
     retiro = 10000;//cin >> retiro;
- }
+    saldoNum -= retiro;
+    saldo = num2Str(saldoNum);
+}

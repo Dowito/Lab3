@@ -42,12 +42,33 @@ string inString()
 
 unsigned long long str2Num(string str){ //reciclo del lab1
 
-    long num = 0;
+    unsigned long long num = 0;
     long tam = str.size(); //funcion que returna el tamaño de una cadena de caracteres sin incluir el nulo
     for (long i = 0; str[i] != '\0'; i++) {
-        num += long(str[i]-48)*pow(10, tam-(i+1)); //
+        num += (unsigned long long)(str[i]-48)*pow(10, tam-(i+1)); //
     }
     return num;
+}
+
+string num2Str(unsigned long long num)
+{
+    string strNum;
+    unsigned short digit;
+    unsigned long long indx = 0;
+    char ch;
+    char buffer[21];
+    while((num/10) != 0 || (num%10) != 0){
+        digit = num%10;
+        ch = digit+48;
+        buffer[indx] = ch;
+        num = num/10;
+        indx++;
+    }
+    --indx;
+    for (unsigned long long i=0; i<=indx; i++) {
+        strNum.push_back(buffer[indx-i]);
+    }
+    return strNum;
 }
 
 void clean()
