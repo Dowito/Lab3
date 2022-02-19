@@ -1,5 +1,5 @@
 #include <Auxiliar.h>
-
+#include <math.h>
 unsigned long long lenCad(char *cad)
 {
     unsigned int tam = 0;
@@ -40,7 +40,15 @@ string inString()
     return str;
 }
 
+unsigned long long str2Num(string str){ //reciclo del lab1
 
+    long num = 0;
+    long tam = str.size(); //funcion que returna el tamaño de una cadena de caracteres sin incluir el nulo
+    for (long i = 0; str[i] != '\0'; i++) {
+        num += long(str[i]-48)*pow(10, tam-(i+1)); //
+    }
+    return num;
+}
 
 void clean()
 {

@@ -36,4 +36,12 @@ void clean();
 /*
 Limpia la consola
 */
+
+unsigned long long str2Num(string str);
+/*
+str --> string de caracteres numericos sin signo
+
+convierte un string de caracteres numericos en un entero
+*/
+
 #endif // AUXILIAR_H

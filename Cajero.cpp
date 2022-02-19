@@ -88,7 +88,16 @@ void retirarSaldo(string infoUsers, unsigned long long &pos)
 {
     pos = (infoUsers.find('(', pos));
     string infoRetiro;
-    for (unsigned long long i = 0; i<=pos; i++) {
-        infoRetiro.push_back(infoRetiro[i]);
+    for (unsigned long long i = 0; i<=pos; i++) { //se crea un nuevo string que va hasta antes del saldo a modificar
+        infoRetiro.push_back(infoUsers[i]);
     }
+    pos++;
+    string saldo;
+    while (infoUsers[pos]!=')') { //Hasta ahi llega el saldo
+        saldo.push_back(infoUsers[pos]); //Se separa el saldo
+        pos++;
+    }
+    unsigned long retiro;
+    cout << "Cuanto desea retirar:\n->";
+    retiro = 10000;//cin >> retiro;
  }

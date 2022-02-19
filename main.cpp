@@ -17,6 +17,7 @@ int main()
     if(validarUsuario(semilla, usuariodat, pos)) cout << "Usuario valido" << endl;
     clean();
     string infoUsers = fEncript2StrDeco(semilla, usuariodat);
+    retirarSaldo(infoUsers, pos);
     impSaldo(infoUsers, pos);
 
     //addUser(semilla, usuariodat, "1230974, berengena, saldo(100)");
