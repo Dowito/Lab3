@@ -12,9 +12,9 @@ int main()
     string usuariodat = "../lab3/Data_base/usuario.dat";
     string pruebas = "../lab3/Data_base/pruebas.txt";
     string usuario = "1230974, berengena, saldo(100)";
-    cout << "Amo a Diovana";
-    clean();
-    cout << "Amo a Diovana";
+
+    unsigned long long pos;
+    if(validarUsuario(semilla, usuariodat, pos)) cout << "Pito" << endl;
 
 
     //addUser(semilla, usuariodat, "1230974, berengena, saldo(100)");

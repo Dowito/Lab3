@@ -43,7 +43,7 @@ void impSaldo(string infoUsers, unsigned long long &pos);
 Imprime el saldo de un usuario
 */
 
-bool validarUsuario(unsigned long long semilla, string inName);
+bool validarUsuario(unsigned long long semilla, string inName, unsigned long long &pos);
 /*
 semilla->Semilla para la decodificacion
 inName->ruta, nombre de la base de datos de los usuarios

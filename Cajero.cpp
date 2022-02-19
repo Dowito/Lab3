@@ -49,27 +49,26 @@ bool validarClave(string infoUsers, string clave, unsigned long long &pos)
     return true;
 }
 
-bool validarUsuario(unsigned long long semilla, string inName)
+bool validarUsuario(unsigned long long semilla, string inName, unsigned long long &pos)
 {
     string infoUsersEncript = readArchivo(inName);
     string infoUsers = encript2Info(semilla, infoUsersEncript, infoUsersEncript.size());
     cout << "Ingrese su cedula:\n->";
-    string cedula = "3193659022"; //inString();
+    string cedula = "1039473685"; //inString();
     clean();
-    unsigned long long pos;
     if(validarCedula(infoUsers, cedula, pos)) { //Si el usuario esta registrado
-        cout << "Ingrese su contraseña:\n->";
-        string clave = "Diovana"; //inString();
+        cout << "Ingrese su clave:\n->";
+        string clave = "cacaroto"; //inString();
         clean();
         if(validarClave(infoUsers, clave, pos)){
             return true;
         }
         else{
-            cout << "No se encontro coincidencia.";
+            cout << "clave no valida.";
         }
     }
     else {
-        cout << "No se encontro coincidencia.";
+        cout << "Cedula no valida.";
     }
     return false;
 }
