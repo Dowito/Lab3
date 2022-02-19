@@ -18,7 +18,7 @@ users->Archivo donde estasn los usuarios almacenados de forma ecriptada
 str-> string con formato: "cedula, clave, saldo (COP)\n"
 */
 
-bool findCedula(string infoUsers, string cedula, unsigned long long &pos);
+bool validarCedula(string infoUsers, string cedula, unsigned long long &pos);
 /*
 infoUsers->String con la informacion de todos los usuarios
 cedula->Cedula que se buscara en inforUsers
@@ -36,5 +36,16 @@ pos->posicion donde empieza la cedula del usuario
 Apartir de infoUsers[pos] se verifica si la contraseña de dicho usuario y la que se ingreso
 coinciden.
 retorna true si hay coindidencia, false de lo contrario
+*/
+
+void impSaldo(string infoUsers, unsigned long long &pos);
+/*
+Imprime el saldo de un usuario
+*/
+
+bool validarUsuario(unsigned long long semilla, string inName);
+/*
+semilla->Semilla para la decodificacion
+inName->ruta, nombre de la base de datos de los usuarios
 */
 #endif // CAJERO_H

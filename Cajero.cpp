@@ -26,11 +26,10 @@ void addUser(unsigned long long semilla, string users, string newUser)
     writeArchivo(users, usersEncript);//Guarda todo en users con los usuario encriptados
 }
 
-bool findCedula(string infoUsers, string cedula, unsigned long long &pos)
+bool validarCedula(string infoUsers, string cedula, unsigned long long &pos)
 {
-    unsigned long long posCedula = infoUsers.find(cedula);
-    if (posCedula != -1) { //la funcion find retorna -1 si no encuentra coincidencia.
-        pos = posCedula;
+    pos = infoUsers.find(cedula);
+    if (pos != -1) { //la funcion find retorna -1 si no encuentra coincidencia.
         return true;
     }
     else return false;
@@ -39,5 +38,49 @@ bool findCedula(string infoUsers, string cedula, unsigned long long &pos)
 
 bool validarClave(string infoUsers, string clave, unsigned long long &pos)
 {
+    pos = (infoUsers.find(' ', pos)+1);
+    unsigned long long indx = 0;
+    while (infoUsers[pos]!=',') {
+        if (infoUsers[pos] == clave[indx]) {
+            pos++; indx++;
+        }
+        else return false;
+    }
+    return true;
+}
 
+bool validarUsuario(unsigned long long semilla, string inName)
+{
+    string infoUsersEncript = readArchivo(inName);
+    string infoUsers = encript2Info(semilla, infoUsersEncript, infoUsersEncript.size());
+    cout << "Ingrese su cedula:\n->";
+    string cedula = "3193659022"; //inString();
+    clean();
+    unsigned long long pos;
+    if(validarCedula(infoUsers, cedula, pos)) { //Si el usuario esta registrado
+        cout << "Ingrese su contraseña:\n->";
+        string clave = "Diovana"; //inString();
+        clean();
+        if(validarClave(infoUsers, clave, pos)){
+            return true;
+        }
+        else{
+            cout << "No se encontro coincidencia.";
+        }
+    }
+    else {
+        cout << "No se encontro coincidencia.";
+    }
+    return false;
+}
+
+void impSaldo(string infoUsers, unsigned long long &pos)
+{
+    pos = (infoUsers.find('(', pos)+1); //El saldo estara despues de '('
+    cout << "Su saldo es de ";
+    while (infoUsers[pos] != ')') { //Llega hasta ')'
+        cout << infoUsers[pos];
+        pos++;
+    }
+    cout << " COP\n";
 }

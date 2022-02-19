@@ -31,4 +31,9 @@ string inString();
 /*
 Retorna un string ingresado por consola
 */
+
+void clean();
+/*
+Limpia la consola
+*/
 #endif // AUXILIAR_H

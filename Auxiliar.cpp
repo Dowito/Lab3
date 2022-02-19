@@ -41,3 +41,10 @@ string inString()
 }
 
 
+
+void clean()
+{
+    for (unsigned int i = 0; i<200; i++) {
+        cout << endl;
+    }
+}
