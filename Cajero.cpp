@@ -84,7 +84,7 @@ void impSaldo(string infoUsers, unsigned long long &pos)
     cout << "COP\n";
 }
 
-void retirarSaldo(string infoUsers, unsigned long long &pos)
+void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, unsigned long long &pos)
 {
     pos = (infoUsers.find('(', pos));
     string infoRetiro;
@@ -99,9 +99,14 @@ void retirarSaldo(string infoUsers, unsigned long long &pos)
     }
     unsigned long long saldoNum;
     unsigned long long retiro;
-    saldoNum = str2Num(saldo);
+    saldoNum = str2Num(saldo);//se convierte el saldo a numero
     cout << "Cuanto desea retirar:\n->";
-    retiro = 10000;//cin >> retiro;
+    retiro = 520000;//cin >> retiro;
     saldoNum -= retiro;
-    saldo = num2Str(saldoNum);
+    saldo = num2Str(saldoNum); //El nuevo saldo se convierte a str
+    infoRetiro.append(saldo); //se agrega el nuevo saldo al str que luego escribiremos
+    unsigned long long posF = infoUsers.size()-1; //posicion final de infoUsers
+    infoRetiro.append(infoUsers, pos, (posF-(pos-1))); //terminamos de agregar el resto de infoUsers desde donde se dejo
+    infoRetiro = info2Encript(semilla, infoRetiro, infoRetiro.size()); //Encriptamos la info con el nuevo saldo
+    writeArchivo(outName, infoRetiro);
 }
