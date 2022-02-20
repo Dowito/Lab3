@@ -6,8 +6,8 @@ bool validarAdmin(unsigned long long semilla, short metodo, string sudo, string 
     }
     else if (metodo == 2) {
         unsigned long long tam = tamArchivo(sudo);
-        string sudoDeco = readArchivo(sudo);
-        sudoDeco = encript2Info(semilla, sudo, tam);
+        string sudoEncript = readArchivo(sudo);
+        string sudoDeco = encript2Info(semilla, sudoEncript, tam);
         if(sudoDeco.compare(Contra) == 0) return true;//La funcion compare retorna 0 si ambos caracteres son iguales.
         else return false;
     }
@@ -144,14 +144,14 @@ string formatoUsuario()
     string saldo;
     string usuario;
     cout << "Ingrese cedula.\n->";
-    cedula = inString();
+    cedula = "1039473685";//inString();
     clean();
     cout << "Ingrese clave.\n->";
-    clave = inString();
+    clave = "cacatua";//inString();
     clean();
     cout << "Ingrese saldo (COP).\n->";
-    saldo = inString();
+    saldo = "145600";//inString();
     clean();
-    usuario = cedula+", "+clave+", saldo("+saldo+")\n";
+    usuario = cedula+", "+clave+", saldo ("+saldo+")\n";
     return usuario;
 }
