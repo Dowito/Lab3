@@ -11,6 +11,7 @@ int main()
     string sudotxt = "../lab3/Data_base/sudo.txt";
     string usuariodat = "../lab3/Data_base/usuario.dat";
     string pruebas = "../lab3/Data_base/pruebas.txt";
+
     string usuario = "1230974, berengena, saldo(100)";
 
     unsigned long long pos;
@@ -19,7 +20,9 @@ int main()
     string infoUsers = fEncript2StrDeco(semilla, usuariodat);
     unsigned long long posUser = pos;
     retirarSaldo(semilla, usuariodat, infoUsers, pos);
-    impSaldo(infoUsers, posUser);
+    //Pra probar luegoimpSaldo(infoUsers, posUser);
+
+    metodo2D(semilla, usuariodat, pruebas);
 
     //addUser(semilla, usuariodat, "1230974, berengena, saldo(100)");
     //metodo2D(semilla, usuariodat, pruebas);
