@@ -3,7 +3,7 @@
 
 #include <manejoArchivo.h>
 
-bool validarAdmin(unsigned long long semilla, short metodo, string sudo);
+bool validarAdmin(unsigned long long semilla, short metodo, string sudo, string Contra);
 /*
 semilla->semilla para la decodificacion de la contraseña de admin.
 metodo->Metodo de codificiacion/decodificacion a usar.
@@ -14,7 +14,7 @@ retorna true si se ingreso como arminsitrador exitosamente, de lo contrario reto
 void addUser(unsigned long long semilla, string users, string str);
 /*
 semilla->semilla para la decodificacion
-users->Archivo donde estasn los usuarios almacenados de forma ecriptada
+users->Archivo donde estan los usuarios almacenados de forma ecriptada
 str-> string con formato: "cedula, clave, saldo (COP)\n"
 */
 
@@ -68,6 +68,11 @@ semilla->semilla para la codificacion
 infoUsers->string con la informacion de todos los usuarios
 &pos->posicion correspondiente al saldo del usuario
 retirar saldo de un usuario
+*/
+
+string formatoUsuario();
+/*
+Retorna un string con el formato necesario para ingresar un usuario en la base de datos
 */
 
 #endif // CAJERO_H

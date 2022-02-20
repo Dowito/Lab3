@@ -1,12 +1,11 @@
 #include <Cajero.h>
-bool validarAdmin(unsigned long long semilla, short metodo, string sudo)
+bool validarAdmin(unsigned long long semilla, short metodo, string sudo, string Contra)
 {
     if(metodo == 1){
 
     }
     else if (metodo == 2) {
         unsigned long long tam = tamArchivo(sudo);
-        string Contra = inString();
         string sudoDeco = readArchivo(sudo);
         sudoDeco = encript2Info(semilla, sudo, tam);
         if(sudoDeco.compare(Contra) == 0) return true;//La funcion compare retorna 0 si ambos caracteres son iguales.
@@ -136,4 +135,23 @@ void cobro(unsigned long long semilla, string outName, string infoUsers, unsigne
     infoRetiro.append(infoUsers, pos, (posF-(pos-1))); //terminamos de agregar el resto de infoUsers desde donde se dejo
     infoRetiro = info2Encript(semilla, infoRetiro, infoRetiro.size()); //Encriptamos la info con el nuevo saldo
     writeArchivo(outName, infoRetiro);
+}
+
+string formatoUsuario()
+{
+    string cedula;
+    string clave;
+    string saldo;
+    string usuario;
+    cout << "Ingrese cedula.\n->";
+    cedula = inString();
+    clean();
+    cout << "Ingrese clave.\n->";
+    clave = inString();
+    clean();
+    cout << "Ingrese saldo (COP).\n->";
+    saldo = inString();
+    clean();
+    usuario = cedula+", "+clave+", saldo("+saldo+")\n";
+    return usuario;
 }

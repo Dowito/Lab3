@@ -100,19 +100,25 @@ int main()
     case 2:
         cout << "1) Ingresar como Administrador.\n"
                 "2) Ingresar como Usuario\n"
-                "Ingrese si entrar como administrador o como usuario.\n->";
+                "Ingrese 1 para entrar como administrador o 2 para entrar como usuario.\n->";
         select = inUnsignedLongLong();
         clean();
         if (select == 1){//Ingresar como Aministrador
-            cout << "1) Agregar usuario.\n"
-                    "2) Salir.\n"
-                    "Ingrese opccion 1 o 2.\n->";
-            select = inUnsignedLongLong();
+            cout << "Ingrese contraseña de arministrador.\n->";
+            string contra = inString();
             clean();
-            if (select == 1) {//Ingresar usuario.
-                validarAdmin(semilla, 2, sudotxt);
+            if(validarAdmin(semilla, 2, sudotxt, contra)){//Agregar usuario
+                cout << "1) Agregar usuario.\n"
+                        "2) Salir.\n"
+                        "Ingrese 1 para agregar usuario o 2 para salir.\n->";
+                select = inUnsignedLongLong();
+                clean();
+                if (select == 1) {//Agregando usuario
+                    string usuario = formatoUsuario();
+                }
+                else cout << "Gracias por usar nuestros servicio, tenga un buen dia";
             }
-            else cout << "Gracias por usar nuestro servicio, tenga un buen dia";
+            else cout << "Clave no valida, intentelo de nuevo";
         }
         else if (select == 2) {//Ingresar como usuario
 
