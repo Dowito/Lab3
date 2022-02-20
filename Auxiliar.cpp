@@ -42,7 +42,7 @@ unsigned long long inUnsignedLongLong()
 string inString()
 {
     string str;
-    getline(cin, str);
+    cin >> str;
     return str;
 }
 
@@ -85,3 +85,15 @@ void clean()
 }
 
 
+
+char *inCad()
+{
+    char *cad;
+    char buffer[1000000] {'\0'};
+    cin >> buffer;
+    cad = new char [lenCad(buffer)+1] {'\0'};
+    for (unsigned long long i = 0; i<lenCad(buffer); i++) {
+        cad[i] = buffer[i];
+    }
+    return cad;
+}

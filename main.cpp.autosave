@@ -11,12 +11,10 @@ int main()
 
     unsigned long long semilla = 0;
     string ruta = "../Lab3/Data_base/";
-    string inName;
-    string outName;
-    char *inNamecad;
-    char *outNamecad;
-    inNamecad = inCad();
-    outNamecad = inCad();
+    string inNameStr;
+    string outNameStr;
+    char *inNameCad;
+    char *outNameCad;
     short select;
     cout << "1) Codificacion / Decodificacion.\n"
             "2) Cajero\n"
@@ -33,7 +31,19 @@ int main()
         select = inUnsignedLongLong();
         clean();
         if (select==1){
-
+            cout << "Ingrese la semilla para la codificacion.\n->";
+            semilla = inUnsignedLongLong();
+            clean();
+            cout << "Ingrese el archivo de entrada (Ej: name.txt / name.dat).\n->";
+            inNameSt = inString();
+            clean();
+            cout << "Ingrese el archivo de salida (Ej: name.txt / name.dat).\n->";
+            outNameCad = inString();
+            clean();
+            inNameStr.insert(0,ruta);
+            outNameStr.insert(0,ruta);
+            metodo2C(semilla, inNameStr, outNameStr);
+            cout << "Sea codificado usando el metodo 2 exitosamente.";
         }
         else if (select==2) {
 
@@ -43,14 +53,14 @@ int main()
             semilla = 17;//inUnsignedLongLong();
             clean();
             cout << "Ingrese el archivo de entrada (Ej: name.txt / name.dat).\n->";
-            inName = inString();
+            inNameStr = inString();
             clean();
             cout << "Ingrese el archivo de salida (Ej: name.txt / name.dat).\n->";
-            outName = inString();
+            outNameStr = inString();
             clean();
-            inName.insert(0,ruta);
-            outName.insert(0,ruta);
-            metodo2C(semilla, inName, outName);
+            inNameStr.insert(0,ruta);
+            outNameStr.insert(0,ruta);
+            metodo2C(semilla, inNameStr, outNameStr);
             cout << "Sea codificado usando el metodo 2 exitosamente.";
         }
         else if (select==4) {
@@ -58,14 +68,14 @@ int main()
             semilla = inUnsignedLongLong();
             clean();
             cout << "Ingrese el archivo de entrada (Ej: name.txt / name.dat).\n->";
-            inName = inString();
+            inNameStr = inString();
             clean();
             cout << "Ingrese el archivo de salida (Ej: name.txt / name.dat).\n->";
-            outName = inString();
+            outNameStr = inString();
             clean();
-            inName.insert(0,ruta);
-            outName.insert(0,ruta);
-            metodo2D(semilla, inName, outName);
+            inNameStr.insert(0,ruta);
+            outNameStr.insert(0,ruta);
+            metodo2D(semilla, inNameStr, outNameStr);
             cout << "Sea decodificado usando el metodo 2 exitosamente.";
         }
         else cout << "vuelva a intentarlo ingresando un metodo valido (1, 2, 3 o 4)";
