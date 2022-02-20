@@ -101,17 +101,17 @@ int main()
         cout << "1) Ingresar como Administrador.\n"
                 "2) Ingresar como Usuario\n"
                 "Ingrese 1 para entrar como administrador o 2 para entrar como usuario.\n->";
-        select = 1;//inUnsignedLongLong();
+        select = 2;//inUnsignedLongLong();
         clean();
         if (select == 1){//Ingresar como Aministrador
             cout << "Ingrese clave de arministrador.\n->";
-            string contra = "Arfiler";//inString();
+            string contra = inString();
             clean();
             if(validarAdmin(semilla, 2, sudotxt, contra)){//Agregar usuario
                 cout << "1) Agregar usuario.\n"
                         "2) Salir.\n"
                         "Ingrese 1 para agregar usuario o 2 para salir.\n->";
-                select = 1;//inUnsignedLongLong();
+                select = inUnsignedLongLong();
                 clean();
                 if (select == 1) {//Agregando usuario
                     string usuario = formatoUsuario();

@@ -48,7 +48,7 @@ bool validarClave(string infoUsers, string clave, unsigned long long &pos)
     return true;
 }
 
-bool validarUsuario(unsigned long long semilla, string inName, unsigned long long &pos)
+bool validarUsuario(unsigned long long semilla, string inName, string *CC, unsigned long long &pos)
 {
     string infoUsersEncript = readArchivo(inName);
     string infoUsers = encript2Info(semilla, infoUsersEncript, infoUsersEncript.size());
