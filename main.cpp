@@ -1,15 +1,16 @@
 #include <manejoArchivo.h>
 #include <Cajero.h>
-
+//semilla = 5 para el cajero
 int main()
 {
+    unsigned long long semilla = 5;
     string natural = "natural.txt";
     string codificado = "codificado.dat";
-    string sudotxt = "..sudo.txt";
-    string usuariodat = "usuario.dat";
-    string pruebas = "pruebas.txt";
 
-    unsigned long long semilla = 0;
+    string sudotxt = "../Lab3/Data_base/sudo.txt";
+    string usuariodat = "../Lab3/Data_base/usuario.dat";
+    string pruebas = "../Lab3/Data_base/pruebas.txt";
+
     string rutaStr = "../Lab3/Data_base/";
     char rutaCad[] = "../Lab3/Data_base/";
     string inNameStr;
@@ -17,10 +18,11 @@ int main()
     char *inNameCad;
     char *outNameCad;
     short select;
+
     cout << "1) Codificacion / Decodificacion.\n"
             "2) Cajero\n"
             "Ingrese programa a ejecutar.\n->";
-    select = 1;//inUnsignedLongLong();
+    select = inUnsignedLongLong();
     clean();
     switch (select) {
     case 1:
@@ -29,7 +31,7 @@ int main()
                 "3) Codificacion metodo 2.\n"
                 "4) Decodificacion metodo 2.\n"
                 "Ingrese codificacion o decodificacion a ejecutar.\n->";
-        select = 2;//inUnsignedLongLong();
+        select = inUnsignedLongLong();
         clean();
         if (select==1){
             cout << "Ingrese la semilla para la codificacion.\n->";
@@ -48,7 +50,7 @@ int main()
         }
         else if (select==2) {
             cout << "Ingrese la semilla para la codificacion.\n->";
-            semilla = 6;//inUnsignedLongLong();
+            semilla = inUnsignedLongLong();
             clean();
             cout << "Ingrese el archivo de entrada (Ej: name.txt / name.dat).\n->";
             inNameCad = inCad();
@@ -63,7 +65,7 @@ int main()
         }
         else if(select==3){
             cout << "Ingrese la semilla para la codificacion.\n->";
-            semilla = 17;//inUnsignedLongLong();
+            semilla = inUnsignedLongLong();
             clean();
             cout << "Ingrese el archivo de entrada (Ej: name.txt / name.dat).\n->";
             inNameStr = inString();
@@ -91,15 +93,35 @@ int main()
             metodo2D(semilla, inNameStr, outNameStr);
             cout << "Se ha decodificado usando el metodo 2 exitosamente.";
         }
-        else cout << "vuelva a intentarlo ingresando un metodo valido (1, 2, 3 o 4)";
+        else cout << "Vuelva a intentarlo ingresando un metodo valido (1, 2, 3 o 4)";
 
         break;
 
     case 2:
+        cout << "1) Ingresar como Administrador.\n"
+                "2) Ingresar como Usuario\n"
+                "Ingrese si entrar como administrador o como usuario.\n->";
+        select = inUnsignedLongLong();
+        clean();
+        if (select == 1){//Ingresar como Aministrador
+            cout << "1) Agregar usuario.\n"
+                    "2) Salir.\n"
+                    "Ingrese opccion 1 o 2.\n->";
+            select = inUnsignedLongLong();
+            clean();
+            if (select == 1) {//Ingresar usuario.
+                validarAdmin(semilla, 2, sudotxt);
+            }
+            else cout << "Gracias por usar nuestro servicio, tenga un buen dia";
+        }
+        else if (select == 2) {//Ingresar como usuario
+
+        }
+        else cout << "Vuelva a intendar ingresando una opcion valida (1 o 2).";
         break;
 
     default:
-        cout << "Vuelva a intentarlo ingresando un programa valido. (1 o 2)";
+        cout << "Vuelva a intentarlo ingresando un programa valido (1 o 2).";
         break;
     }
 

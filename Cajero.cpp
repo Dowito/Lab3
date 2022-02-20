@@ -9,7 +9,7 @@ bool validarAdmin(unsigned long long semilla, short metodo, string sudo)
         string Contra = inString();
         string sudoDeco = readArchivo(sudo);
         sudoDeco = encript2Info(semilla, sudo, tam);
-        if(sudoDeco.compare(Contra) == 0) return true;
+        if(sudoDeco.compare(Contra) == 0) return true;//La funcion compare retorna 0 si ambos caracteres son iguales.
         else return false;
     }
     return 0;
