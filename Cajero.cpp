@@ -20,7 +20,7 @@ void addUser(unsigned long long semilla, string users, string newUser)
     unsigned long long tam = tamArchivo(users); //Tamaño de users
     string usersEncript = readArchivo(users); //Lee archivo
     string usersDeco = encript2Info(semilla, usersEncript, tam); //Lo decodifica
-    usersDeco.append(newUser+"\n"); //Agrega al nuevo usuario y al final pone un salto de linea
+    usersDeco.append(newUser); //Agrega al nuevo usuario y al final pone un salto de linea
     usersEncript = info2Encript(semilla, usersDeco, usersDeco.size());//Vuelve a encriptarlo pero con el nuevo usuario agregado
     writeArchivo(users, usersEncript);//Guarda todo en users con los usuario encriptados
 }
@@ -144,13 +144,13 @@ string formatoUsuario()
     string saldo;
     string usuario;
     cout << "Ingrese cedula.\n->";
-    cedula = "1039473685";//inString();
+    cedula = inString();
     clean();
     cout << "Ingrese clave.\n->";
-    clave = "cacatua";//inString();
+    clave = inString();
     clean();
     cout << "Ingrese saldo (COP).\n->";
-    saldo = "145600";//inString();
+    saldo = inString();
     clean();
     usuario = cedula+", "+clave+", saldo ("+saldo+")\n";
     return usuario;

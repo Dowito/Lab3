@@ -17,8 +17,8 @@ int main()
     string outNameStr;
     char *inNameCad;
     char *outNameCad;
+    //metodo2D(semilla, usuariodat, pruebas);
     short select;
-
     cout << "1) Codificacion / Decodificacion.\n"
             "2) Cajero\n"
             "Ingrese programa a ejecutar.\n->";
@@ -111,12 +111,14 @@ int main()
                 cout << "1) Agregar usuario.\n"
                         "2) Salir.\n"
                         "Ingrese 1 para agregar usuario o 2 para salir.\n->";
-                select = inUnsignedLongLong();
+                select = 1;//inUnsignedLongLong();
                 clean();
                 if (select == 1) {//Agregando usuario
                     string usuario = formatoUsuario();
+                    addUser(semilla, usuariodat, usuario);
+                    cout << "Nuevo usuario agregado con exito";
                 }
-                else cout << "Gracias por usar nuestros servicio, tenga un buen dia";
+                else cout << "Gracias por usar nuestros servicios, tenga un buen dia";
             }
             else cout << "Clave no valida, intentelo de nuevo";
         }
