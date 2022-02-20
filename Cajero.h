@@ -47,14 +47,14 @@ retorna true si un usuario a ingresado con exito de lo contrario
 retorna false
 */
 
-void impSaldo(string infoUsers, unsigned long long &pos);
+void impSaldo(string infoUsers, unsigned long long pos);
 /*
 infoUsers->string con la informacion de todos los usuarios
 &pos->posicion correspondiente al saldo del usuario
 Imprime el saldo de un usuario
 */
 
-void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, unsigned long long &pos);
+void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, unsigned long long pos);
 /*
 semilla->semilla para la codificacion
 infoUsers->string con la informacion de todos los usuarios
@@ -62,7 +62,7 @@ infoUsers->string con la informacion de todos los usuarios
 retirar saldo de un usuario
 */
 
-void cobro(unsigned long long semilla, string outName, string infoUsers, unsigned long long &pos);
+void cobro(unsigned long long semilla, string outName, string infoUsers, unsigned long long pos);
 /*
 semilla->semilla para la codificacion
 infoUsers->string con la informacion de todos los usuarios

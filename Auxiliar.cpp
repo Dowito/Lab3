@@ -32,6 +32,12 @@ bool ifCadSame(string str1, string str2)
     return true;
 }
 
+unsigned long long inUnsignedLongLong()
+{
+    unsigned long long num;
+    cin >> num;
+    return num;
+}
 
 string inString()
 {
@@ -52,6 +58,7 @@ unsigned long long str2Num(string str){ //reciclo del lab1
 
 string num2Str(unsigned long long num)
 {
+    if(num == 0) return "0";
     string strNum;
     unsigned short digit;
     unsigned long long indx = 0;
@@ -64,9 +71,8 @@ string num2Str(unsigned long long num)
         num = num/10;
         indx++;
     }
-    --indx;
-    for (unsigned long long i=0; i<=indx; i++) {
-        strNum.push_back(buffer[indx-i]);
+    for (unsigned long long i=0; i<indx; i++) {
+        strNum.push_back(buffer[(indx-1)-i]);
     }
     return strNum;
 }
@@ -77,3 +83,5 @@ void clean()
         cout << endl;
     }
 }
+
+

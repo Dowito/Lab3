@@ -27,6 +27,11 @@ str1 y str2 strings a comparar
 retorna true si str1 y str2 son iguales de lo contrario retorna false
 */
 
+unsigned long long inUnsignedLongLong();
+/*
+Retorna un entero positivo ingresado por consola
+*/
+
 string inString();
 /*
 Retorna un string ingresado por consola

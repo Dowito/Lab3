@@ -73,7 +73,7 @@ bool validarUsuario(unsigned long long semilla, string inName, unsigned long lon
     return false;
 }
 
-void impSaldo(string infoUsers, unsigned long long &pos)
+void impSaldo(string infoUsers, unsigned long long pos)
 {
     pos = (infoUsers.find('(', pos)+1); //El saldo estara despues de '('
     cout << "Su saldo es de ";
@@ -84,8 +84,9 @@ void impSaldo(string infoUsers, unsigned long long &pos)
     cout << "COP\n";
 }
 
-void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, unsigned long long &pos)
+void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, unsigned long long pos)
 {
+
     pos = (infoUsers.find('(', pos));
     string infoRetiro;
     for (unsigned long long i = 0; i<=pos; i++) { //se crea un nuevo string que va hasta antes del saldo a modificar
@@ -112,7 +113,7 @@ void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, 
     writeArchivo(outName, infoRetiro);
 }
 
-void cobro(unsigned long long semilla, string outName, string infoUsers, unsigned long long &pos)
+void cobro(unsigned long long semilla, string outName, string infoUsers, unsigned long long pos)
 {
     pos = (infoUsers.find('(', pos));
     string infoRetiro;
