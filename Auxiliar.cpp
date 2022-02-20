@@ -79,7 +79,7 @@ string num2Str(unsigned long long num)
 
 void clean()
 {
-    for (unsigned int i = 0; i<200; i++) {
+    for (unsigned int i = 0; i<3; i++) {
         cout << endl;
     }
 }

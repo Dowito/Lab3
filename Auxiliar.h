@@ -39,7 +39,7 @@ Retorna un string ingresado por consola
 
 void clean();
 /*
-Limpia la consola
+Limpia la consola.
 */
 
 unsigned long long str2Num(string str);
