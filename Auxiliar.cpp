@@ -97,3 +97,23 @@ char *inCad()
     }
     return cad;
 }
+
+char *insert(char *cad1, unsigned long long npos, char *cad2)
+{
+    char *resultCad = new char [lenCad(cad1)+lenCad(cad2)+1] {'\0'};
+    unsigned long long i=0;
+    unsigned long long indx;
+    for (indx=0; indx<npos; indx++) {//Se agregada cad1 hasta la npos
+        resultCad[i] = cad1[indx];
+        i++;
+    }
+    for (indx=0; indx<lenCad(cad2); indx++) {//se inserta todo cad2
+        resultCad[i] = cad2[indx];
+        i++;
+    }
+    for (indx=npos; indx<lenCad(cad1); indx++) {//se termina de agregar cad1 desde donde se dejo(npos)
+        resultCad[i] = cad1[indx];
+        i++;
+    }
+    return resultCad;
+}

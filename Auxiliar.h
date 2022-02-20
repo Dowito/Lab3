@@ -59,4 +59,9 @@ string num2Str(unsigned long long num);
 convierte numero entero positivo en un string
 */
 
+char *insert(char *cad1, unsigned long long npos, char *cad2);
+/*
+Inserta cad2 en cad2 desde desde la posicion npos
+*/
+
 #endif // AUXILIAR_H

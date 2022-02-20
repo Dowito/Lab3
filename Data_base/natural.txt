@@ -1,33 +1,57 @@
-Las redes neuronales artificiales (también conocidas como sistemas conexionistas) son un modelo computacional 
-vagamente inspirado en el comportamiento observado en su homólogo biológico​. Consiste en un conjunto de unidades,
-llamadas neuronas artificiales, conectadas entre sí para transmitirse señales. La información de entrada atraviesa
-la red neuronal (donde se somete a diversas operaciones) produciendo unos valores de salida.
+Yuh hear mi, God fi repent yuh know
+God up God up fi real time serious
+Yuh dun know, God up God up God up
 
-Cada neurona está conectada con otras a través de unos enlaces. En estos enlaces el valor de salida de la neurona 
-anterior es multiplicado por un valor de peso. Estos pesos en los enlaces pueden incrementar o inhibir el estado de 
-activación de las neuronas adyacentes. Del mismo modo, a la salida de la neurona, puede existir una función limitadora
- o umbral, que modifica el valor resultado o impone un límite que no se debe sobrepasar antes de propagarse a otra 
-neurona.
+[Verse 1:]
+Check the state of the world we live in can't you see it's a cryin shame (Forgive them)
+Leadership fails before it begins motivated by persobal games (Forgive them)
+Tempers flare and patience ware ten finger pointin but who is to blame
+Repent, repent, repent, repent
 
-Estos sistemas aprenden y se forman a sí mismos, en lugar de ser programados de forma explícita, y sobresalen en áreas
- donde la detección de soluciones o características es difícil de expresar con la programación convencional. Para realizar
- este aprendizaje automático, normalmente, se intenta minimizar una función de pérdida que evalúa la red en su total. 
-Los valores de los pesos de las neuronas se van actualizando buscando reducir el valor de la función de pérdida. 
-Este proceso se realiza mediante la propagación hacia atrás.
+[Chorus:]
+Cause where two steps away from a real disaster
+Think there a boss but a who are the master
+Life set a pace every thing much faster
+Need to slow down and pray (Forgive them)
+Two steps away from a real disaster
+Think there a boss but a who are the master
+Life set a pace every thing much faster
+Need to slow down and pray (Forgive them)
+[Verse 2:]
 
-El objetivo de la red neuronal es resolver los problemas de la misma manera que el cerebro humano, aunque las redes 
-neuronales son más abstractas. Las redes neuronales actuales suelen contener desde unos miles a unos pocos millones 
-de unidades neuronales.
+Fightin for what they did not create cryin peace while inflicting pain (Forgive them)
+Man deciding another man's fate claiming power in their God's name (Forgive them)
+Words of love but their actions speak hate seems like mankind has gone insane
+Repent, repent, repent, repent
+[Chorus:]
 
-Nuevas investigaciones sobre el cerebro a menudo estimulan la creación de nuevos patrones en las redes neuronales. 
-Un nuevo enfoque está utilizando conexiones que se extienden mucho más allá y capas de procesamiento de enlace en 
-lugar de estar siempre localizado en las neuronas adyacentes. Otra investigación está estudiando los diferentes tipos 
-de señal en el tiempo que los axones se propagan, como el aprendizaje profundo, interpola una mayor complejidad que un 
-conjunto de variables
+Cause where two steps away from a real disaster
+Think there a boss but a who are the master
+Life set a pace every thing much faster
+Need to slow down and pray (Forgive them)
+Two steps away from a real disaster
+Think there a boss but a who are the master
+Life set a pace every thing much faster
+Need to slow down and pray (Forgive them)
 
-Las redes neuronales se han utilizado para resolver una amplia variedad de tareas, como la visión por computador y el 
-reconocimiento de voz, que son difíciles de resolver usando la ordinaria programación basado en reglas. Históricamente, 
-el uso de modelos de redes neuronales marcó un cambio de dirección a finales de los años ochenta de alto nivel, que se 
-caracteriza por sistemas expertos con conocimiento incorporado en si-entonces las reglas, a bajo nivel de aprendizaje 
-automático, caracterizado por el conocimiento incorporado en los parámetros de un modelo cognitivo con algún sistema 
-dinámico.
+[Bridge: Shaggy (Background Singers)]
+
+(They don't know) If they stick to the spot there be nothing else left to defend
+(They don't know) Instead of finding a cure we should look for the means to prevent
+(They don't know) We can talk to the lord ain't no need for a special event
+Repent, repent, repent, repent
+
+[Chorus:]
+
+Cause where two steps away from a real disaster
+Think there a boss but a who are the master
+Life set a pace every thing much faster
+Need to slow down and pray (Forgive them)
+Two steps away from a real disaster
+Think there a boss but a who are the master
+Life set a pace every thing much faster
+Need to slow down and pray (Forgive them)
+
+[Repeat Verse 1]
+
+[Repeat Chorus Until end]
