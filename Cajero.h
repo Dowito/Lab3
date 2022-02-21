@@ -21,8 +21,8 @@ str-> string con formato: "cedula, clave, saldo (COP)\n"
 bool validarCedula(string infoUsers, string cedula, unsigned long long &pos);
 /*
 infoUsers->String con la informacion de todos los usuarios
-cedula->Cedula que se buscara en inforUsers
-pos->variable donde se guardara la posicion de la cedula
+cedula->Cedula que se buscara en infoUsers
+pos->variable donde se guardara la posicion de la cedula por refencia
 retorna true si encuentra la cedula dentro de infoUsers, y por referencia a pos le asigna el valor
 de la posicion de la primera coindicencia.
 retorna false si no hay coincidencia
@@ -81,5 +81,6 @@ string *cedulaClave();
 /*
 retorna un arreglo de strings que se ingresa por consola
 */
+
 
 #endif // CAJERO_H

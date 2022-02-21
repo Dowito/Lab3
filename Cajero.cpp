@@ -27,11 +27,23 @@ void addUser(unsigned long long semilla, string users, string newUser)
 
 bool validarCedula(string infoUsers, string cedula, unsigned long long &pos)
 {
-    pos = infoUsers.find(cedula);
-    if (pos != -1) { //la funcion find retorna -1 si no encuentra coincidencia.
-        return true;
+    unsigned long long i=0;
+    string buffer;
+    pos=i;
+    while(i<infoUsers.size()){
+        for (i; infoUsers[i]!=','; i++) {//Se recorre todo infoUsers
+            buffer.push_back(infoUsers[i]); //extraigo la cedula que llega hasta ','
+        }
+        if(buffer==cedula) return true;
+        //Se hace proceso para extraer la siguiente cedula
+        i=infoUsers.find(')',i);
+        while (infoUsers[i]==')' || infoUsers[i]=='\n') {
+            i++;
+        }
+        pos=i;//Posicion de la siguiente cedula
+        buffer.assign("");//reiniciamos el buffer
     }
-    else return false;
+    return false;
 }
 
 
@@ -70,7 +82,7 @@ void impSaldo(unsigned long long semilla, string inName, unsigned long long pos)
 {
     string infoUsers = fEncript2StrDeco(semilla, inName);
     pos = (infoUsers.find('(', pos)+1); //El saldo estara despues de '('
-    cout << "->Su saldo es de ";
+    cout << "Su saldo es de ";
     while (infoUsers[pos] != ')') { //Llega hasta ')'
         cout << infoUsers[pos];
         pos++;

@@ -3,6 +3,7 @@
 //semilla = 5 para el cajero
 int main()
 {
+
     unsigned long long semilla = 5;
     string natural = "natural.txt";
     string codificado = "codificado.dat";
@@ -139,7 +140,13 @@ int main()
                             "Gracias por usar nuestros servicios, tenga un buen dia";
                 }
                 else if (select == 2) {
-                    //retirarSaldo(semilla, usuariodat, infoUsers, pos);
+                    cout << "Cuanto desea retirar?\n->";
+                    unsigned long long retiro = inUnsignedLongLong();
+                    clean();
+                    retirarSaldo(semilla, usuariodat, (retiro-1000), pos);
+                    cout << "->Se han retirado " << retiro << " COP con exito.\n";
+                    cout << "Retirar saldo tuvo un coste de 1000 COP.\n";
+                    cout << "Gracias por usar nuestros servicios, tenga un buen dia\n";
                 }
                 else cout << "Gracias por usar nuestros servicios, tenga un buen dia\n";
             }
