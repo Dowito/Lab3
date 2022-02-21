@@ -5,9 +5,6 @@ int main()
 {
 
     unsigned long long semilla = 5;
-    string natural = "natural.txt";
-    string codificado = "codificado.dat";
-
     string sudotxt = "../Lab3/Data_base/sudo.txt";
     string usuariodat = "../Lab3/Data_base/usuario.dat";
     string pruebas = "../Lab3/Data_base/pruebas.txt";
@@ -18,7 +15,6 @@ int main()
     string outNameStr;
     char *inNameCad;
     char *outNameCad;
-    //metodo2D(semilla, usuariodat, pruebas);
     short select;
     cout << "1) Codificacion / Decodificacion.\n"
             "2) Cajero\n"
@@ -124,6 +120,7 @@ int main()
             else cout << "Clave no valida, intentelo de nuevo";
         }
         else if (select == 2) {//Ingresar como usuario
+            unsigned long long saldo;
             unsigned long long pos;
             string *CC = cedulaClave();
             if(validarUsuario(semilla, usuariodat, CC, pos)){
@@ -134,19 +131,45 @@ int main()
                 select = inUnsignedLongLong();
                 clean();
                 if (select == 1) { //Ver saldo
-                    reSaldo(semilla, usuariodat, pos);
+                    saldo = reSaldo(semilla, usuariodat, pos);
+                    if(saldo<1000){
+                        cout << "No se puede ver saldo.";
+                        clean();
+                        cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
+                        break;
+                    }
+                    cout << "Su saldo es de: " << saldo <<" COP.";
                     retirarSaldo(semilla, usuariodat, 1000, pos);
-                    cout << "\nVer saldo tuvo un coste de 1000 COP.\n"
-                            "Gracias por usar nuestros servicios, tenga un buen dia";
+                    cout << "\nVer saldo tuvo un coste de 1000 COP.\n";
+                    saldo = reSaldo(semilla, usuariodat, pos);
+                    cout << "Su saldo quedo en: " << saldo <<" COP.";
+                    clean();
+                    cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
                 }
                 else if (select == 2) {//retirar saldo
-                    reSaldo(semilla, usuariodat, pos);
+                    saldo = reSaldo(semilla, usuariodat, pos);
+                    if(saldo<1000){
+                        cout << "No se puede retirar, fondos insuficientes";
+                        clean();
+                        cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
+                        break;
+                    }
+                    cout << "Su saldo es de: " << saldo <<" COP.";
                     cout << "\nCuanto desea retirar?\n->";
                     unsigned long long retiro = inUnsignedLongLong();
                     clean();
+                    if(saldo<retiro+1000){
+                        cout << "No se puede retirar, fondos insuficientes";
+                        clean();
+                        cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
+                        break;
+                    }
                     retirarSaldo(semilla, usuariodat, (retiro+1000), pos);
                     cout << "->Se han retirado " << retiro << " COP con exito.\n";
                     cout << "Retirar saldo tuvo un coste de 1000 COP.\n";
+                    saldo = reSaldo(semilla, usuariodat, pos);
+                    cout << "Su saldo quedo en: " << saldo <<" COP.";
+                    clean();
                     cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
                 }
                 else cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";

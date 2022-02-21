@@ -81,13 +81,14 @@ bool validarUsuario(unsigned long long semilla, string inName, string *CC, unsig
 unsigned long long reSaldo(unsigned long long semilla, string inName, unsigned long long pos)
 {
     string infoUsers = fEncript2StrDeco(semilla, inName);
+    string saldo;
     pos = (infoUsers.find('(', pos)+1); //El saldo estara despues de '('
-    cout << "Su saldo es de ";
     while (infoUsers[pos] != ')') { //Llega hasta ')'
-        cout << infoUsers[pos];
+        saldo.push_back(infoUsers[pos]);
         pos++;
     }
-    cout << " COP.";
+    unsigned long long saldoNum = str2Num(saldo);
+    return saldoNum;
 }
 
 void retirarSaldo(unsigned long long semilla, string inName, unsigned long long retiro, unsigned long long pos)
