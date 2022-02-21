@@ -126,7 +126,6 @@ int main()
             unsigned long long pos;
             string *CC = cedulaClave();
             if(validarUsuario(semilla, usuariodat, CC, pos)){
-                string infoUsers = fEncript2StrDeco(semilla, usuariodat);
                 cout << "1) Ver saldo.\n"
                         "2) Retirar saldo.\n"
                         "3) Salir.\n"
@@ -134,11 +133,11 @@ int main()
                 select = inUnsignedLongLong();
                 clean();
                 if (select == 1) { //Retirar saldo
-                    impSaldo(infoUsers, pos);
+                    impSaldo(semilla, usuariodat, pos);
 
                 }
                 else if (select == 2) {
-                    retirarSaldo(semilla, usuariodat, infoUsers, pos);
+                    //retirarSaldo(semilla, usuariodat, infoUsers, pos);
                 }
                 else cout << "Gracias por usar nuestros servicios, tenga un buen dia";
             }
