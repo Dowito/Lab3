@@ -1,6 +1,7 @@
 #include <manejoArchivo.h>
 #include <Cajero.h>
-//semilla = 5 para el cajero
+
+//Cajero hecho con metodo 2
 int main()
 {
 
