@@ -7,7 +7,6 @@ int main()
     unsigned long long semilla = 5;
     string sudotxt = "../Lab3/Data_base/sudo.txt";
     string usuariodat = "../Lab3/Data_base/usuario.dat";
-    string pruebas = "../Lab3/Data_base/pruebas.txt";
 
     string rutaStr = "../Lab3/Data_base/";
     char rutaCad[] = "../Lab3/Data_base/";
@@ -19,7 +18,7 @@ int main()
     cout << "1) Codificacion / Decodificacion.\n"
             "2) Cajero\n"
             "Ingrese programa a ejecutar.\n->";
-    select = 2;//inUnsignedLongLong();
+    select = inUnsignedLongLong();
     clean();
     switch (select) {
     case 1:
@@ -43,7 +42,7 @@ int main()
             inNameCad = insert(inNameCad, 0, rutaCad);
             outNameCad = insert(outNameCad, 0, rutaCad);
             metodo1C(semilla, inNameCad, outNameCad);
-            cout << "Se ha codificado usando el metodo 1 exitosamente.";
+            cout << "Se ha codificado usando el metodo 1 exitosamente.\n";
         }
         else if (select==2) {
             cout << "Ingrese la semilla para la codificacion.\n->";
@@ -58,7 +57,7 @@ int main()
             inNameCad = insert(inNameCad, 0, rutaCad);
             outNameCad = insert(outNameCad, 0, rutaCad);
             metodo1D(semilla, inNameCad, outNameCad);
-            cout << "Se ha decodificado usando el metodo 1 exitosamente.";
+            cout << "Se ha decodificado usando el metodo 1 exitosamente.\n";
         }
         else if(select==3){
             cout << "Ingrese la semilla para la codificacion.\n->";
@@ -73,7 +72,7 @@ int main()
             inNameStr.insert(0,rutaStr);
             outNameStr.insert(0,rutaStr);
             metodo2C(semilla, inNameStr, outNameStr);
-            cout << "Se ha codificado usando el metodo 2 exitosamente.";
+            cout << "Se ha codificado usando el metodo 2 exitosamente.\n";
         }
         else if (select==4) {
             cout << "Ingrese la semilla para la decodificacion.\n->";
@@ -88,17 +87,20 @@ int main()
             inNameStr.insert(0,rutaStr);
             outNameStr.insert(0,rutaStr);
             metodo2D(semilla, inNameStr, outNameStr);
-            cout << "Se ha decodificado usando el metodo 2 exitosamente.";
+            cout << "Se ha decodificado usando el metodo 2 exitosamente.\n";
         }
         else cout << "Vuelva a intentarlo ingresando un metodo valido (1, 2, 3 o 4)";
 
         break;
 
     case 2:
+        cout << "Ingrese la semilla.\n->";
+        semilla = inUnsignedLongLong();
+        clean();
         cout << "1) Ingresar como Administrador.\n"
                 "2) Ingresar como Usuario\n"
                 "Ingrese 1 para entrar como administrador o 2 para entrar como usuario.\n->";
-        select = 2;//inUnsignedLongLong();
+        select = inUnsignedLongLong();
         clean();
         if (select == 1){//Ingresar como Aministrador
             cout << "Ingrese clave de arministrador.\n->";
@@ -113,7 +115,7 @@ int main()
                 if (select == 1) {//Agregando usuario
                     string usuario = formatoUsuario();
                     addUser(semilla, usuariodat, usuario);
-                    cout << "Nuevo usuario agregado con exito";
+                    cout << "Nuevo usuario agregado con exito.";
                 }
                 else cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
             }
@@ -149,7 +151,7 @@ int main()
                 else if (select == 2) {//retirar saldo
                     saldo = reSaldo(semilla, usuariodat, pos);
                     if(saldo<1000){
-                        cout << "No se puede retirar, fondos insuficientes";
+                        cout << "No se puede retirar, fondos insuficientes.";
                         clean();
                         cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
                         break;
@@ -159,7 +161,7 @@ int main()
                     unsigned long long retiro = inUnsignedLongLong();
                     clean();
                     if(saldo<retiro+1000){
-                        cout << "No se puede retirar, fondos insuficientes";
+                        cout << "No se puede retirar, fondos insuficientes.";
                         clean();
                         cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
                         break;
