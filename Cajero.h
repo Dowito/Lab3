@@ -55,12 +55,13 @@ pos->posicion correspondiente al saldo del usuario a imprimir
 Imprime el saldo de un usuario.
 */
 
-void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, unsigned long long pos);
+void retirarSaldo(unsigned long long semilla, string inName, unsigned long long retiro, unsigned long long pos);
 /*
 semilla->semilla para la codificacion
-infoUsers->string con la informacion de todos los usuarios
-&pos->posicion correspondiente al saldo del usuario
-retirar saldo de un usuario
+inName->nombre del archivo donde esta  la informacion de los usuarios encriptada
+retiro->cantidad que se va a retirar
+pos->posicion correspondiente al saldo del usuario
+retira saldo de un usuario.
 */
 
 void cobro(unsigned long long semilla, string outName, string infoUsers, unsigned long long pos);

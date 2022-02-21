@@ -132,14 +132,16 @@ int main()
                         "Ingrese 1 para ver saldo, 2 para retirar saldo o 3 para salir.\n->";
                 select = inUnsignedLongLong();
                 clean();
-                if (select == 1) { //Retirar saldo
+                if (select == 1) { //Ver saldo
                     impSaldo(semilla, usuariodat, pos);
-
+                    retirarSaldo(semilla, usuariodat, 1000, pos);
+                    cout << "\nVer saldo tuvo un coste de 1000 COP.\n"
+                            "Gracias por usar nuestros servicios, tenga un buen dia";
                 }
                 else if (select == 2) {
                     //retirarSaldo(semilla, usuariodat, infoUsers, pos);
                 }
-                else cout << "Gracias por usar nuestros servicios, tenga un buen dia";
+                else cout << "Gracias por usar nuestros servicios, tenga un buen dia\n";
             }
             else cout << "Vuelva a intentarlo.";
         }

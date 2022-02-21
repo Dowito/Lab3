@@ -70,18 +70,18 @@ void impSaldo(unsigned long long semilla, string inName, unsigned long long pos)
 {
     string infoUsers = fEncript2StrDeco(semilla, inName);
     pos = (infoUsers.find('(', pos)+1); //El saldo estara despues de '('
-    cout << "Su saldo es de ";
+    cout << "->Su saldo es de ";
     while (infoUsers[pos] != ')') { //Llega hasta ')'
         cout << infoUsers[pos];
         pos++;
     }
-    cout << " COP";
+    cout << " COP.";
 }
 
-void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, unsigned long long pos)
+void retirarSaldo(unsigned long long semilla, string inName, unsigned long long retiro, unsigned long long pos)
 {
-
-    pos = (infoUsers.find('(', pos));
+    string infoUsers = fEncript2StrDeco(semilla, inName);
+    pos = (infoUsers.find('(', pos)); //El saldo en COP empieza desde '('
     string infoRetiro;
     for (unsigned long long i = 0; i<=pos; i++) { //se crea un nuevo string que va hasta antes del saldo a modificar
         infoRetiro.push_back(infoUsers[i]);
@@ -93,18 +93,14 @@ void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, 
         pos++;
     }
     unsigned long long saldoNum;
-    unsigned long long retiro;
     saldoNum = str2Num(saldo);//se convierte el saldo a numero
-    cout << "Cuanto desea retirar:\n->";
-    cin >> retiro;
     saldoNum -= retiro;
-    saldoNum -= 1000;//La condicion de que se cobra 1000 por cada retiro
     saldo = num2Str(saldoNum); //El nuevo saldo se convierte a str
     infoRetiro.append(saldo); //se agrega el nuevo saldo al str que luego escribiremos
     unsigned long long posF = infoUsers.size()-1; //posicion final de infoUsers
     infoRetiro.append(infoUsers, pos, (posF-(pos-1))); //terminamos de agregar el resto de infoUsers desde donde se dejo
     infoRetiro = info2Encript(semilla, infoRetiro, infoRetiro.size()); //Encriptamos la info con el nuevo saldo
-    writeArchivo(outName, infoRetiro);
+    writeArchivo(inName, infoRetiro);
 }
 
 void cobro(unsigned long long semilla, string outName, string infoUsers, unsigned long long pos)
