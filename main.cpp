@@ -123,41 +123,33 @@ int main()
             else cout << "Clave no valida, intentelo de nuevo";
         }
         else if (select == 2) {//Ingresar como usuario
+            unsigned long long pos;
+            string *CC = cedulaClave();
+            if(validarUsuario(semilla, usuariodat, CC, pos)){
+                string infoUsers = fEncript2StrDeco(semilla, usuariodat);
+                cout << "1) Ver saldo.\n"
+                        "2) Retirar saldo.\n"
+                        "3) Salir.\n"
+                        "Ingrese 1 para ver saldo, 2 para retirar saldo o 3 para salir.\n->";
+                select = inUnsignedLongLong();
+                clean();
+                if (select == 1) { //Retirar saldo
+                    impSaldo(infoUsers, pos);
 
+                }
+                else if (select == 2) {
+                    retirarSaldo(semilla, usuariodat, infoUsers, pos);
+                }
+                else cout << "Gracias por usar nuestros servicios, tenga un buen dia";
+            }
+            else cout << "Vuelva a intentarlo.";
         }
-        else cout << "Vuelva a intendar ingresando una opcion valida (1 o 2).";
+        else cout << "Vuelva a intentarlo ingresando una opcion valida (1 o 2).";
         break;
 
     default:
         cout << "Vuelva a intentarlo ingresando un programa valido (1 o 2).";
         break;
     }
-
-
-    unsigned long long pos;
-    if(validarUsuario(semilla, usuariodat, pos)){
-        cout << "Usuario valido" << endl;
-        clean();
-        string infoUsers = fEncript2StrDeco(semilla, usuariodat);
-        impSaldo(infoUsers, pos);
-        retirarSaldo(semilla, usuariodat, infoUsers, pos);
-
-
-        metodo2D(semilla, usuariodat, pruebas);
-    }
-    else cout << "Te jodiste perro";
-
-
-    //addUser(semilla, usuariodat, "1230974, berengena, saldo(100)");
-    //metodo2D(semilla, usuariodat, pruebas);
-
-
-
-
     return 0;
 }
-
-
-
-
-

@@ -52,22 +52,16 @@ bool validarUsuario(unsigned long long semilla, string inName, string *CC, unsig
 {
     string infoUsersEncript = readArchivo(inName);
     string infoUsers = encript2Info(semilla, infoUsersEncript, infoUsersEncript.size());
-    cout << "Ingrese su cedula:\n->";
-    string cedula = inString();
-    clean();
-    if(validarCedula(infoUsers, cedula, pos)) { //Si el usuario esta registrado
-        cout << "Ingrese su clave:\n->";
-        string clave = inString();
-        clean();
-        if(validarClave(infoUsers, clave, pos)){
+    if(validarCedula(infoUsers, CC[0], pos)) { //Si el usuario esta registrado
+        if(validarClave(infoUsers, CC[1], pos)){
             return true;
         }
         else{
-            cout << "clave no valida.";
+            cout << "clave no valida.\n";
         }
     }
     else {
-        cout << "Cedula no valida.";
+        cout << "Cedula no valida.\n";
     }
     return false;
 }
@@ -80,7 +74,7 @@ void impSaldo(string infoUsers, unsigned long long pos)
         cout << infoUsers[pos];
         pos++;
     }
-    cout << "COP\n";
+    cout << " COP";
 }
 
 void retirarSaldo(unsigned long long semilla, string outName, string infoUsers, unsigned long long pos)
@@ -154,4 +148,20 @@ string formatoUsuario()
     clean();
     usuario = cedula+", "+clave+", saldo ("+saldo+")\n";
     return usuario;
+}
+
+string *cedulaClave()
+{
+    string *CC = new string [2];
+    string cedula;
+    string clave;
+    cout << "Ingrese cedula:\n->";
+    cedula = inString();
+    clean();
+    cout << "Ingrese clave:\n->";
+    clave = inString();
+    clean();
+    CC[0] = cedula;
+    CC[1] = clave;
+    return CC;
 }

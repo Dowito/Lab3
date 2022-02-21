@@ -38,7 +38,7 @@ coinciden.
 retorna true si hay coindidencia, false de lo contrario
 */
 
-bool validarUsuario(unsigned long long semilla, string inName, unsigned long long &pos);
+bool validarUsuario(unsigned long long semilla, string inName, string *CC,unsigned long long &pos);
 /*
 semilla->Semilla para la decodificacion
 inName->ruta/nombre de la base de datos de los usuarios
@@ -73,6 +73,11 @@ retirar saldo de un usuario
 string formatoUsuario();
 /*
 Retorna un string con el formato necesario para ingresar un usuario en la base de datos
+*/
+
+string *cedulaClave();
+/*
+retorna un arreglo de strings que se ingresa por consola
 */
 
 #endif // CAJERO_H
