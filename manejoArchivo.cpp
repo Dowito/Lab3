@@ -68,7 +68,6 @@ string readArchivo(string name)
 
 void writeArchivo(char *name, char *cad, unsigned long long tam)
 {
-    //unsigned long long tam = lenCad(cad);
     fstream Archivo;
     Archivo.open(name, fstream::out | fstream::binary);
     if (Archivo.is_open()) {

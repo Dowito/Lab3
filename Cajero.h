@@ -47,12 +47,12 @@ retorna true si un usuario a ingresado con exito de lo contrario
 retorna false
 */
 
-void impSaldo(unsigned long long semilla, string inName, unsigned long long pos);
+unsigned long long reSaldo(unsigned long long semilla, string inName, unsigned long long pos);
 /*
 semilla->semilla para la codificacion
 inName->nombre del texto con la informacion de los usuarios encriptada
 pos->posicion correspondiente al saldo del usuario a imprimir
-Imprime el saldo de un usuario.
+retorna el saldo de un usuario.
 */
 
 void retirarSaldo(unsigned long long semilla, string inName, unsigned long long retiro, unsigned long long pos);

@@ -78,7 +78,7 @@ bool validarUsuario(unsigned long long semilla, string inName, string *CC, unsig
     return false;
 }
 
-void impSaldo(unsigned long long semilla, string inName, unsigned long long pos)
+unsigned long long reSaldo(unsigned long long semilla, string inName, unsigned long long pos)
 {
     string infoUsers = fEncript2StrDeco(semilla, inName);
     pos = (infoUsers.find('(', pos)+1); //El saldo estara despues de '('

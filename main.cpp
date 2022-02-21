@@ -119,7 +119,7 @@ int main()
                     addUser(semilla, usuariodat, usuario);
                     cout << "Nuevo usuario agregado con exito";
                 }
-                else cout << "Gracias por usar nuestros servicios, tenga un buen dia";
+                else cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
             }
             else cout << "Clave no valida, intentelo de nuevo";
         }
@@ -134,29 +134,30 @@ int main()
                 select = inUnsignedLongLong();
                 clean();
                 if (select == 1) { //Ver saldo
-                    impSaldo(semilla, usuariodat, pos);
+                    reSaldo(semilla, usuariodat, pos);
                     retirarSaldo(semilla, usuariodat, 1000, pos);
                     cout << "\nVer saldo tuvo un coste de 1000 COP.\n"
                             "Gracias por usar nuestros servicios, tenga un buen dia";
                 }
-                else if (select == 2) {
-                    cout << "Cuanto desea retirar?\n->";
+                else if (select == 2) {//retirar saldo
+                    reSaldo(semilla, usuariodat, pos);
+                    cout << "\nCuanto desea retirar?\n->";
                     unsigned long long retiro = inUnsignedLongLong();
                     clean();
-                    retirarSaldo(semilla, usuariodat, (retiro-1000), pos);
+                    retirarSaldo(semilla, usuariodat, (retiro+1000), pos);
                     cout << "->Se han retirado " << retiro << " COP con exito.\n";
                     cout << "Retirar saldo tuvo un coste de 1000 COP.\n";
-                    cout << "Gracias por usar nuestros servicios, tenga un buen dia\n";
+                    cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
                 }
-                else cout << "Gracias por usar nuestros servicios, tenga un buen dia\n";
+                else cout << "Gracias por usar nuestros servicios, tenga un buen dia.\n";
             }
-            else cout << "Vuelva a intentarlo.";
+            else cout << "Vuelva a intentarlo.\n";
         }
-        else cout << "Vuelva a intentarlo ingresando una opcion valida (1 o 2).";
+        else cout << "Vuelva a intentarlo ingresando una opcion valida (1 o 2).\n";
         break;
 
     default:
-        cout << "Vuelva a intentarlo ingresando un programa valido (1 o 2).";
+        cout << "Vuelva a intentarlo ingresando un programa valido (1 o 2).\n";
         break;
     }
     return 0;
